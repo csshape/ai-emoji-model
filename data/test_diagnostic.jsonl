@@ -1,0 +1,210 @@
+{"text": "mødet er flyttet til onsdag nu", "labels": ["😩"], "lang": "da", "n_words": 6, "phase": "anger"}
+{"text": "ja den magiske deadline flytter sig jo aldrig", "labels": ["🙄"], "lang": "da", "n_words": 8, "phase": "anger"}
+{"text": "kaffe først så panik bagefter", "labels": ["☕"], "lang": "da", "n_words": 5, "phase": "food_drink"}
+{"text": "godmorgen er den invite stadig til rum 4", "labels": ["🙂"], "lang": "da", "n_words": 8, "phase": "social"}
+{"text": "haha mikkel", "labels": ["😂"], "lang": "da", "n_words": 2, "phase": "social"}
+{"text": "jeg tager kaffe med op", "labels": ["😅", "☕"], "lang": "da", "n_words": 5, "phase": "food_drink"}
+{"text": "min kalender siger stadig tirsdag", "labels": ["😳"], "lang": "da", "n_words": 5, "phase": "work"}
+{"text": "fik lige kalender ping igen", "labels": ["🔔"], "lang": "da", "n_words": 5, "phase": "work"}
+{"text": "jeg henter noget frokost senere", "labels": ["🍔"], "lang": "da", "n_words": 5, "phase": "food_drink"}
+{"text": "jeg er faktisk ved at blive sur", "labels": ["😠"], "lang": "da", "n_words": 7, "phase": "anger"}
+{"text": "tak jeg finder projektoren", "labels": ["😅"], "lang": "da", "n_words": 4, "phase": "mundane"}
+{"text": "den projektor hader mig", "labels": ["😤"], "lang": "da", "n_words": 4, "phase": "anger"}
+{"text": "der er sol i køkkenet", "labels": ["☀"], "lang": "da", "n_words": 5, "phase": "mundane"}
+{"text": "slide decket ligger på mit bord", "labels": ["🙄", "💻"], "lang": "da", "n_words": 6, "phase": "work"}
+{"text": "bilen holder ude bagved", "labels": ["🚗"], "lang": "da", "n_words": 4, "phase": "place_transport"}
+{"text": "super tak for listen", "labels": ["👍"], "lang": "da", "n_words": 4, "phase": "social"}
+{"text": "der står kage ved kaffemaskinen", "labels": ["🍰"], "lang": "da", "n_words": 5, "phase": "food_drink"}
+{"text": "ledelsen elsker virkelig tavshed", "labels": ["🙄"], "lang": "da", "n_words": 4, "phase": "anger"}
+{"text": "det regner ved Nørrebro", "labels": ["🌧"], "lang": "da", "n_words": 4, "phase": "place_transport"}
+{"text": "jeg retter agendaen igen", "labels": ["😩", "📝"], "lang": "da", "n_words": 4, "phase": "work"}
+{"text": "har nogen faktisk set en beslutning", "labels": ["👀"], "lang": "da", "n_words": 6, "phase": "work"}
+{"text": "kan vi lige holde en ordentlig tone", "labels": ["🙏"], "lang": "da", "n_words": 7, "phase": "social"}
+{"text": "seriøst jeg er træt af den her runde", "labels": ["😩"], "lang": "da", "n_words": 8, "phase": "sadness"}
+{"text": "jeg blev lidt ked af den mail faktisk", "labels": ["😭"], "lang": "da", "n_words": 8, "phase": "sadness"}
+{"text": "jeg logger hjemmefra efter frokost", "labels": ["🏠"], "lang": "da", "n_words": 5, "phase": "place_transport"}
+{"text": "pizza som coping senere", "labels": ["😅", "🍕"], "lang": "da", "n_words": 4, "phase": "food_drink"}
+{"text": "ja lad os måle skaden pænt", "labels": ["🙃"], "lang": "da", "n_words": 6, "phase": "anger"}
+{"text": "jeg lukker laptoppen snart", "labels": ["😴"], "lang": "da", "n_words": 4, "phase": "mundane"}
+{"text": "ny invite siger torsdag kl 13", "labels": ["🙄"], "lang": "da", "n_words": 6, "phase": "anger"}
+{"text": "ny tid kl 15 nu", "labels": ["🙄", "⏰"], "lang": "da", "n_words": 5, "phase": "work"}
+{"text": "jeg sov dårligt over det her", "labels": ["😩"], "lang": "da", "n_words": 6, "phase": "sadness"}
+{"text": "det lyder også bare træls", "labels": ["🥲"], "lang": "da", "n_words": 5, "phase": "sadness"}
+{"text": "jeg er sur på den måde hvor jeg bliver stille", "labels": ["😡"], "lang": "da", "n_words": 10, "phase": "anger"}
+{"text": "qa på login er grønt nu", "labels": ["✅"], "lang": "da", "n_words": 6, "phase": "work"}
+{"text": "øl efter det her føles lovligt", "labels": ["😩", "🍺"], "lang": "da", "n_words": 6, "phase": "food_drink"}
+{"text": "jeg prøver at holde tonen i statusmailen", "labels": ["😬"], "lang": "da", "n_words": 7, "phase": "work"}
+{"text": "jeg har chokolade i tasken", "labels": ["🍫"], "lang": "da", "n_words": 5, "phase": "food_drink"}
+{"text": "ja rip smuk animation", "labels": ["😅"], "lang": "da", "n_words": 4, "phase": "work"}
+{"text": "jeg magter ikke flere pings lige nu", "labels": ["😩"], "lang": "da", "n_words": 7, "phase": "sadness"}
+{"text": "risikoarket er rødt igen", "labels": ["😅", "⚠"], "lang": "da", "n_words": 4, "phase": "work"}
+{"text": "øl i aften?", "labels": ["🍺"], "lang": "da", "n_words": 3, "phase": "food_drink"}
+{"text": "jeg købte æbler til bordet", "labels": ["🍎"], "lang": "da", "n_words": 5, "phase": "food_drink"}
+{"text": "kaffe og deadline kl 8 stærk start", "labels": ["😅", "☕", "⏰"], "lang": "da", "n_words": 7, "phase": "food_drink"}
+{"text": "er spinneren vigtig for demoen", "labels": ["🤔"], "lang": "da", "n_words": 5, "phase": "work"}
+{"text": "lene svarer på teams men ikke her", "labels": ["🙄", "📱"], "lang": "da", "n_words": 7, "phase": "anger"}
+{"text": "så må vi fejre med vand efterfølgende", "labels": ["🍻"], "lang": "da", "n_words": 7, "phase": "food_drink"}
+{"text": "perfekt den gamle clicker lever igen", "labels": ["✨"], "lang": "da", "n_words": 6, "phase": "mundane"}
+{"text": "min maskine hakker midt i build", "labels": ["😩", "💻"], "lang": "da", "n_words": 6, "phase": "work"}
+{"text": "jeg kan tage screenshots hvis det hjælper", "labels": ["😊"], "lang": "da", "n_words": 7, "phase": "social"}
+{"text": "stadig ingen endelig godkendelse", "labels": ["🙄"], "lang": "da", "n_words": 4, "phase": "anger"}
+{"text": "pizza og sidste merge", "labels": ["😅", "🍕"], "lang": "da", "n_words": 4, "phase": "food_drink"}
+{"text": "jeg opdaterer beslutningerne", "labels": ["😩", "📝"], "lang": "da", "n_words": 3, "phase": "work"}
+{"text": "okay vi kom igennem det", "labels": ["💪"], "lang": "da", "n_words": 5, "phase": "social"}
+{"text": "lol jeg var også lige forvirret", "labels": ["😂"], "lang": "da", "n_words": 6, "phase": "social"}
+{"text": "hvis outlook sender en mail mere skriger jeg", "labels": ["😩"], "lang": "da", "n_words": 8, "phase": "anger"}
+{"text": "jeg har lyst til is senere", "labels": ["🍦"], "lang": "da", "n_words": 6, "phase": "food_drink"}
+{"text": "haha tobias laver roadmap", "labels": ["😅"], "lang": "da", "n_words": 4, "phase": "social"}
+{"text": "jeg er sur på budgetarket", "labels": ["😠"], "lang": "da", "n_words": 5, "phase": "anger"}
+{"text": "jeg skal bare have en øl og stilhed", "labels": ["🍺"], "lang": "da", "n_words": 8, "phase": "food_drink"}
+{"text": "det bliver hyggeligt", "labels": ["😊"], "lang": "da", "n_words": 3, "phase": "social"}
+{"text": "godmorgen er planen stadig i dag", "labels": ["🙂"], "lang": "da", "n_words": 6, "phase": "social"}
+{"text": "kaffe først eller går jeg i stykker", "labels": ["☕"], "lang": "da", "n_words": 7, "phase": "food_drink"}
+{"text": "seriøst jeg hader det møde", "labels": ["😡"], "lang": "da", "n_words": 5, "phase": "anger"}
+{"text": "printeren virker aldrig", "labels": ["😅"], "lang": "da", "n_words": 3, "phase": "work"}
+{"text": "jeg tager min laptop med hvis jeg skal gå tidligt", "labels": ["💻"], "lang": "da", "n_words": 10, "phase": "work"}
+{"text": "magter ikke den mail", "labels": ["😩"], "lang": "da", "n_words": 4, "phase": "work"}
+{"text": "kaffe om lidt?", "labels": ["☕"], "lang": "da", "n_words": 3, "phase": "food_drink"}
+{"text": "jeg er faktisk ked af min kalender i dag", "labels": ["🥲"], "lang": "da", "n_words": 9, "phase": "sadness"}
+{"text": "du trykkede på tirsdag", "labels": ["🙄"], "lang": "da", "n_words": 4, "phase": "mundane"}
+{"text": "intet brænder men vores plan er varm", "labels": ["🔥"], "lang": "da", "n_words": 7, "phase": "social"}
+{"text": "toget er forsinket igen", "labels": ["😩"], "lang": "da", "n_words": 4, "phase": "place_transport"}
+{"text": "stolt af dig", "labels": ["👏"], "lang": "da", "n_words": 3, "phase": "social"}
+{"text": "første øl på Apollo?", "labels": ["🍺"], "lang": "da", "n_words": 4, "phase": "food_drink"}
+{"text": "jeg troede vi skulle have burger", "labels": ["🍔"], "lang": "da", "n_words": 6, "phase": "food_drink"}
+{"text": "jeg craver bare vand", "labels": ["💦"], "lang": "da", "n_words": 4, "phase": "food_drink"}
+{"text": "jeg har glemt mit tørklæde på kontoret", "labels": ["😬"], "lang": "da", "n_words": 7, "phase": "mundane"}
+{"text": "jeg kommer ned nu", "labels": ["😅"], "lang": "da", "n_words": 4, "phase": "place_transport"}
+{"text": "vi står udenfor og fryser", "labels": ["❄"], "lang": "da", "n_words": 5, "phase": "place_transport"}
+{"text": "det regner på Nørrebro", "labels": ["🌧"], "lang": "da", "n_words": 4, "phase": "place_transport"}
+{"text": "endelig", "labels": ["🙌"], "lang": "da", "n_words": 1, "phase": "social"}
+{"text": "skål om lidt", "labels": ["🍻"], "lang": "da", "n_words": 3, "phase": "food_drink"}
+{"text": "skål for at overleve ugen", "labels": ["🍷"], "lang": "da", "n_words": 5, "phase": "food_drink"}
+{"text": "min telefon er på 4 procent", "labels": ["📱"], "lang": "da", "n_words": 6, "phase": "mundane"}
+{"text": "pizza eller nudler?", "labels": ["🍕"], "lang": "da", "n_words": 3, "phase": "food_drink"}
+{"text": "tobias er meget vred på grønt", "labels": ["😂"], "lang": "da", "n_words": 6, "phase": "social"}
+{"text": "er alle hjemme?", "labels": ["😂"], "lang": "da", "n_words": 3, "phase": "social"}
+{"text": "jeg er hjemme", "labels": ["🏠"], "lang": "da", "n_words": 3, "phase": "place_transport"}
+{"text": "taxa hjem nu", "labels": ["🚗", "😅"], "lang": "da", "n_words": 3, "phase": "place_transport"}
+{"text": "jeg blev væk ved garderoben", "labels": ["😂", "😂"], "lang": "da", "n_words": 5, "phase": "social"}
+{"text": "jeg fandt mit tørklæde", "labels": ["🙈"], "lang": "da", "n_words": 4, "phase": "mundane"}
+{"text": "hvem tog billedet hvor mikkel spiser pommes", "labels": ["📸", "😂"], "lang": "da", "n_words": 7, "phase": "social"}
+{"text": "jeg har kun et æble mod tømmermænd", "labels": ["😩", "🍎"], "lang": "da", "n_words": 7, "phase": "sadness"}
+{"text": "jeg er overraskende frisk", "labels": ["😄"], "lang": "da", "n_words": 4, "phase": "social"}
+{"text": "min hals er død", "labels": ["😩"], "lang": "da", "n_words": 4, "phase": "sadness"}
+{"text": "jeg er ked af at jeg droppede dansen", "labels": ["🥲"], "lang": "da", "n_words": 8, "phase": "sadness"}
+{"text": "nogen der vil have brunch senere?", "labels": ["🍰", "😅"], "lang": "da", "n_words": 6, "phase": "food_drink"}
+{"text": "jeg vil gerne men først bad", "labels": ["😅"], "lang": "da", "n_words": 6, "phase": "mundane"}
+{"text": "jeg har bestilt burger til sofaen", "labels": ["🍔", "😅"], "lang": "da", "n_words": 6, "phase": "food_drink"}
+{"text": "mad er en stor beslutning i dag", "labels": ["🤔", "🍫"], "lang": "da", "n_words": 7, "phase": "food_drink"}
+{"text": "jeg tager pizza og lukker verden ude", "labels": ["🍕", "😩"], "lang": "da", "n_words": 7, "phase": "food_drink"}
+{"text": "min bankapp siger stop", "labels": ["💰", "😭"], "lang": "da", "n_words": 4, "phase": "sadness"}
+{"text": "jeg er lidt ked af at weekenden allerede løber væk", "labels": ["😭"], "lang": "da", "n_words": 10, "phase": "sadness"}
+{"text": "søndagstjek hvem overlevede?", "labels": ["✅", "😂"], "lang": "da", "n_words": 3, "phase": "social"}
+{"text": "jeg skal arbejde lidt senere", "labels": ["💻", "😩"], "lang": "da", "n_words": 5, "phase": "work"}
+{"text": "tak for i går folkens", "labels": ["🥂", "💕", "✨"], "lang": "da", "n_words": 5, "phase": "social"}
+{"text": "næste gang starter vi tidligere og spiser ordentligt", "labels": ["😂"], "lang": "da", "n_words": 8, "phase": "social"}
+{"text": "fire år og så bare ude i gangen", "labels": ["😭"], "lang": "da", "n_words": 8, "phase": "sadness"}
+{"text": "jeg sidder bare på gulvet i jakke stadig", "labels": ["🥲"], "lang": "da", "n_words": 8, "phase": "sadness"}
+{"text": "jeg kan tage kaffe med?", "labels": ["☕"], "lang": "da", "n_words": 5, "phase": "food_drink"}
+{"text": "jeg har aldrig hadet en gang mere end den gang", "labels": ["😂"], "lang": "da", "n_words": 10, "phase": "social"}
+{"text": "du skal ikke være alene i aften", "labels": ["❤"], "lang": "da", "n_words": 7, "phase": "social"}
+{"text": "han sagde han elsker mig men ikke nok", "labels": ["😭"], "lang": "da", "n_words": 8, "phase": "sadness"}
+{"text": "jeg har vin og chokolade hvis det hjælper?", "labels": ["🍷", "🍫"], "lang": "da", "n_words": 8, "phase": "food_drink"}
+{"text": "fedt mit liv er slut og mikkel køber rugbrød", "labels": ["😅"], "lang": "da", "n_words": 9, "phase": "social"}
+{"text": "tror døren er åben men jeg er grim af gråd", "labels": ["🥺"], "lang": "da", "n_words": 10, "phase": "sadness"}
+{"text": "pizza og dum tv hos mig i morgen?", "labels": ["🍕", "📺"], "lang": "da", "n_words": 8, "phase": "food_drink"}
+{"text": "jeg hader ham og savner ham samtidig", "labels": ["😭"], "lang": "da", "n_words": 7, "phase": "sadness"}
+{"text": "øl og tåre er classy?", "labels": ["😂"], "lang": "da", "n_words": 5, "phase": "food_drink"}
+{"text": "vi kommer med tæpper og oplader", "labels": ["🎁"], "lang": "da", "n_words": 6, "phase": "mundane"}
+{"text": "kaffe hjælper åbenbart ikke", "labels": ["😅", "☕"], "lang": "da", "n_words": 4, "phase": "food_drink"}
+{"text": "jeg er godt nok træt", "labels": ["😩"], "lang": "da", "n_words": 5, "phase": "sadness"}
+{"text": "jeg er så sur", "labels": ["😠"], "lang": "da", "n_words": 4, "phase": "anger"}
+{"text": "sæt alarm på 10 min bare start der", "labels": ["⏰"], "lang": "da", "n_words": 8, "phase": "mundane"}
+{"text": "bad føles som et bjerg", "labels": ["😭"], "lang": "da", "n_words": 5, "phase": "sadness"}
+{"text": "er der om 10 min? kører nu", "labels": ["👍", "🚗"], "lang": "da", "n_words": 7, "phase": "place_transport"}
+{"text": "kontorflugt er selvomsorg", "labels": ["😂"], "lang": "da", "n_words": 3, "phase": "work"}
+{"text": "kan skrive at du er syg hvis du vil", "labels": ["😅"], "lang": "da", "n_words": 9, "phase": "work"}
+{"text": "hvad skriver man til sin chef når ens liv brænder", "labels": ["😬"], "lang": "da", "n_words": 10, "phase": "work"}
+{"text": "deadline kan vente en dag", "labels": ["📝"], "lang": "da", "n_words": 5, "phase": "work"}
+{"text": "vågnede og tudede igen", "labels": ["😭", "🌧"], "lang": "da", "n_words": 4, "phase": "sadness"}
+{"text": "jeg bliver rasende når jeg tænker på hans timing!!", "labels": ["😡"], "lang": "da", "n_words": 9, "phase": "anger"}
+{"text": "jeg tager noget frokost med fra lagkagehuset?", "labels": ["🍰"], "lang": "da", "n_words": 7, "phase": "food_drink"}
+{"text": "min mave er knude", "labels": ["😩"], "lang": "da", "n_words": 4, "phase": "sadness"}
+{"text": "kage er bare brød med følelser", "labels": ["😂", "🎂"], "lang": "da", "n_words": 6, "phase": "food_drink"}
+{"text": "har du drukket vand i dag", "labels": ["💦"], "lang": "da", "n_words": 6, "phase": "food_drink"}
+{"text": "for tidligt men spørg igen senere", "labels": ["🙂"], "lang": "da", "n_words": 6, "phase": "social"}
+{"text": "alle tager steder hen og jeg sidder her", "labels": ["😭"], "lang": "da", "n_words": 8, "phase": "sadness"}
+{"text": "jeg kan køre dig en tur bare rundt om søerne?", "labels": ["🌊"], "lang": "da", "n_words": 10, "phase": "place_transport"}
+{"text": "den mail fik mig til at grine lidt", "labels": ["😅", "💻"], "lang": "da", "n_words": 8, "phase": "work"}
+{"text": "du overlevede dag to", "labels": ["💪"], "lang": "da", "n_words": 4, "phase": "social"}
+{"text": "jeg vågnede før alarmen", "labels": ["🔔"], "lang": "da", "n_words": 4, "phase": "mundane"}
+{"text": "jeg er stadig vred over hans besked", "labels": ["🙄"], "lang": "da", "n_words": 7, "phase": "anger"}
+{"text": "jeg bliver sur på dine vegne", "labels": ["😤"], "lang": "da", "n_words": 6, "phase": "anger"}
+{"text": "is på hjørnet kl 11?", "labels": ["🍦"], "lang": "da", "n_words": 5, "phase": "food_drink"}
+{"text": "savner bare vores gamle søndage", "labels": ["😭", "🏠"], "lang": "da", "n_words": 5, "phase": "sadness"}
+{"text": "søndag uden dårlig musik fra hans højtaler", "labels": ["😂"], "lang": "da", "n_words": 7, "phase": "social"}
+{"text": "take away og joggingbukser lyder realistisk?", "labels": ["😅"], "lang": "da", "n_words": 6, "phase": "food_drink"}
+{"text": "fredag overlevede vi med øl!!", "labels": ["🥲", "🍻", "🎶"], "lang": "da", "n_words": 5, "phase": "food_drink"}
+{"text": "kalenderen søger erstatning", "labels": ["😂"], "lang": "da", "n_words": 3, "phase": "social"}
+{"text": "jeg stemmer på burgere i aften", "labels": ["🍔"], "lang": "da", "n_words": 6, "phase": "food_drink"}
+{"text": "det er faktisk rart med en plan?", "labels": ["👍", "✅"], "lang": "da", "n_words": 7, "phase": "social"}
+{"text": "jeg tager snacks med senere okay?", "labels": ["❤", "🛒"], "lang": "da", "n_words": 6, "phase": "food_drink"}
+{"text": "jeg faldt over hans gamle hoodie og gik helt ned igen", "labels": ["😭"], "lang": "da", "n_words": 11, "phase": "sadness"}
+{"text": "hoodie i karantæne lyder sundt", "labels": ["😅"], "lang": "da", "n_words": 5, "phase": "social"}
+{"text": "det hele føles bare sort", "labels": ["🖤"], "lang": "da", "n_words": 5, "phase": "sadness"}
+{"text": "jeg skal forbi lufthavnen efter job", "labels": ["✈"], "lang": "da", "n_words": 6, "phase": "place_transport"}
+{"text": "Fields efter breakup er modigt", "labels": ["😂"], "lang": "da", "n_words": 5, "phase": "place_transport"}
+{"text": "jeg har ryddet en kop væk og føler mig voksen", "labels": ["😅"], "lang": "da", "n_words": 10, "phase": "mundane"}
+{"text": "jeg låser op om 10 min", "labels": ["👍"], "lang": "da", "n_words": 6, "phase": "mundane"}
+{"text": "jeg trykker bare ok", "labels": ["😅"], "lang": "da", "n_words": 4, "phase": "mundane"}
+{"text": "klassisk", "labels": ["🙄"], "lang": "da", "n_words": 1, "phase": "anger"}
+{"text": "jeg sender reminder efter standup", "labels": ["📝"], "lang": "da", "n_words": 5, "phase": "work"}
+{"text": "jeg har glemt frokost", "labels": ["😩"], "lang": "da", "n_words": 4, "phase": "food_drink"}
+{"text": "hellere noget varmt, jeg fryser", "labels": ["❄"], "lang": "da", "n_words": 5, "phase": "food_drink"}
+{"text": "lol selvfølgelig", "labels": ["😂"], "lang": "da", "n_words": 2, "phase": "social"}
+{"text": "jeg åbner docs nu", "labels": ["💻"], "lang": "da", "n_words": 4, "phase": "work"}
+{"text": "tror er et stærkt ord", "labels": ["😅"], "lang": "da", "n_words": 5, "phase": "social"}
+{"text": "same vi tager den roligt", "labels": ["🙂"], "lang": "da", "n_words": 5, "phase": "social"}
+{"text": "tak, fandt den under tasken", "labels": ["😬"], "lang": "da", "n_words": 5, "phase": "mundane"}
+{"text": "virkelig tynd", "labels": ["😅"], "lang": "da", "n_words": 2, "phase": "food_drink"}
+{"text": "jeg henter en ny kande", "labels": ["☕"], "lang": "da", "n_words": 5, "phase": "food_drink"}
+{"text": "eller også kan outlook ødelægge noget nyt", "labels": ["😂"], "lang": "da", "n_words": 7, "phase": "social"}
+{"text": "jeg får sved på panden af det der", "labels": ["😩"], "lang": "da", "n_words": 8, "phase": "sadness"}
+{"text": "den uden subject? ja desværre", "labels": ["😠"], "lang": "da", "n_words": 5, "phase": "anger"}
+{"text": "jeg vil have burger i dag", "labels": ["🍔"], "lang": "da", "n_words": 6, "phase": "food_drink"}
+{"text": "kan du købe chokolade med hvis du gider", "labels": ["🍫"], "lang": "da", "n_words": 8, "phase": "food_drink"}
+{"text": "det regner helt skævt", "labels": ["🌧"], "lang": "da", "n_words": 4, "phase": "place_transport"}
+{"text": "jeg bliver sindssyg", "labels": ["😩"], "lang": "da", "n_words": 3, "phase": "anger"}
+{"text": "jeg savner allerede weekenden", "labels": ["🥲"], "lang": "da", "n_words": 4, "phase": "sadness"}
+{"text": "same", "labels": ["😂"], "lang": "da", "n_words": 1, "phase": "social"}
+{"text": "jeg har lavet checklisten", "labels": ["✅"], "lang": "da", "n_words": 4, "phase": "work"}
+{"text": "pizza til aften hvis vi sidder længe?", "labels": ["🍕"], "lang": "da", "n_words": 7, "phase": "food_drink"}
+{"text": "jeg bliver sur hvis de sender mere i sidste øjeblik", "labels": ["😡"], "lang": "da", "n_words": 10, "phase": "anger"}
+{"text": "samme, øjne som sand", "labels": ["😩"], "lang": "da", "n_words": 4, "phase": "sadness"}
+{"text": "kaffe nu", "labels": ["☕", "😅"], "lang": "da", "n_words": 2, "phase": "food_drink"}
+{"text": "printeren siger error igen", "labels": ["⚠"], "lang": "da", "n_words": 4, "phase": "work"}
+{"text": "jeg hader den maskine", "labels": ["😠"], "lang": "da", "n_words": 4, "phase": "anger"}
+{"text": "hvad fanden", "labels": ["🙄"], "lang": "da", "n_words": 2, "phase": "anger"}
+{"text": "måske ring i stedet", "labels": ["📱"], "lang": "da", "n_words": 4, "phase": "work"}
+{"text": "jeg græder allerede", "labels": ["😭"], "lang": "da", "n_words": 3, "phase": "sadness"}
+{"text": "vi når det, små bidder", "labels": ["💪"], "lang": "da", "n_words": 5, "phase": "social"}
+{"text": "æble eller banan? jeg kan kun finde æble", "labels": ["🍎"], "lang": "da", "n_words": 8, "phase": "food_drink"}
+{"text": "jeg har bilen i dag", "labels": ["🚗"], "lang": "da", "n_words": 5, "phase": "place_transport"}
+{"text": "elsker vores logistik", "labels": ["😅", "😂"], "lang": "da", "n_words": 3, "phase": "social"}
+{"text": "deck sendt til review", "labels": ["💻", "📝", "✅"], "lang": "da", "n_words": 4, "phase": "work"}
+{"text": "godmorgen fredag jeg er allerede bagud også", "labels": ["😅"], "lang": "da", "n_words": 7, "phase": "social"}
+{"text": "kaffe er min eneste plan", "labels": ["😩"], "lang": "da", "n_words": 5, "phase": "sadness"}
+{"text": "Louise svarede 22.48 i går", "labels": ["😤"], "lang": "da", "n_words": 5, "phase": "anger"}
+{"text": "selvfølgelig gjorde hun det", "labels": ["😂"], "lang": "da", "n_words": 4, "phase": "social"}
+{"text": "kan nå deadline hvis ingen rører Jira", "labels": ["😅"], "lang": "da", "n_words": 7, "phase": "work"}
+{"text": "jeg har lagt bilag i mappen", "labels": ["📚"], "lang": "da", "n_words": 6, "phase": "work"}
+{"text": "øl efter deadline?", "labels": ["😂", "🍺"], "lang": "da", "n_words": 3, "phase": "food_drink"}
+{"text": "solen er faktisk fremme", "labels": ["😊", "☀"], "lang": "da", "n_words": 4, "phase": "mundane"}
+{"text": "jeg vil hjem og sove", "labels": ["😩", "🏠"], "lang": "da", "n_words": 5, "phase": "sadness"}
+{"text": "hvis kunden svarer nu skriger jeg", "labels": ["😂", "🔥"], "lang": "da", "n_words": 6, "phase": "anger"}
+{"text": "Amalie flyver til Berlin i aften?", "labels": ["😉", "✈"], "lang": "da", "n_words": 6, "phase": "place_transport"}
+{"text": "jeg pakker laptoppen og går mod stranden", "labels": ["😄", "🏖"], "lang": "da", "n_words": 7, "phase": "place_transport"}
+{"text": "den sidste mail fejlede igen", "labels": ["😩", "❌"], "lang": "da", "n_words": 5, "phase": "work"}
+{"text": "nu må det være weekend", "labels": ["😂", "🌙"], "lang": "da", "n_words": 5, "phase": "social"}
+{"text": "send billede fra havet i morgen", "labels": ["🥺", "🌊"], "lang": "da", "n_words": 6, "phase": "social"}

@@ -1,0 +1,10 @@
+{
+ "vocab_size": 8000,
+ "n_emoji": 512,
+ "d_model": 128,
+ "n_heads": 4,
+ "n_layers": 4,
+ "d_ff": 256,
+ "max_len": 64,
+ "dropout": 0.1
+}

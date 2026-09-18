@@ -1,0 +1,2734 @@
+{
+  "schemaVersion": "1.0",
+  "generatedFor": "emoji-model-test",
+  "locale": "da-DK",
+  "title": "Fredagsbar i København",
+  "description": "En vennegruppe planlægger fredagsbar, mad, bytur og dagen derpå i København.",
+  "conversation": {
+    "id": "fredagsbar_kbh_001",
+    "participants": [
+      {
+        "id": "p1",
+        "name": "Jasmin"
+      },
+      {
+        "id": "p2",
+        "name": "Mikkel"
+      },
+      {
+        "id": "p3",
+        "name": "Sara"
+      },
+      {
+        "id": "p4",
+        "name": "Tobias"
+      },
+      {
+        "id": "p5",
+        "name": "Noor"
+      }
+    ]
+  },
+  "messages": [
+    {
+      "id": "msg_0001",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p1",
+      "senderName": "Jasmin",
+      "sentAt": "2026-01-08T16:05:00.000Z",
+      "type": "text",
+      "text": "okay fredag hvad gør vi",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "social",
+        "session": 1,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0002",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p2",
+      "senderName": "Mikkel",
+      "sentAt": "2026-01-08T16:12:00.000Z",
+      "type": "text",
+      "text": "jeg kan efter arbejde men ikke for sent",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "work",
+        "session": 1,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0003",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p3",
+      "senderName": "Sara",
+      "sentAt": "2026-01-08T16:19:00.000Z",
+      "type": "text",
+      "text": "skal vi starte med fredagsbar på kontoret",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "food_drink",
+        "session": 1,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0004",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p4",
+      "senderName": "Tobias",
+      "sentAt": "2026-01-08T16:26:00.000Z",
+      "type": "text",
+      "text": "min deadline er dum men jeg prøver",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "work",
+        "session": 1,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0005",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p5",
+      "senderName": "Noor",
+      "sentAt": "2026-01-08T16:33:00.000Z",
+      "type": "text",
+      "text": "jeg er på hvis vi spiser noget først",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "food_drink",
+        "session": 1,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0006",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p1",
+      "senderName": "Jasmin",
+      "sentAt": "2026-01-08T16:40:00.000Z",
+      "type": "text",
+      "text": "øl i aften nej vent det er først i morgen",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "food_drink",
+        "session": 1,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0007",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p2",
+      "senderName": "Mikkel",
+      "sentAt": "2026-01-08T16:47:00.000Z",
+      "type": "text",
+      "text": "lol jeg var også lige forvirret 😂",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "social",
+        "session": 1,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0008",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p3",
+      "senderName": "Sara",
+      "sentAt": "2026-01-08T16:54:00.000Z",
+      "type": "text",
+      "text": "fredag kl 17 ved køkkenet",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "mundane",
+        "session": 1,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0009",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p4",
+      "senderName": "Tobias",
+      "sentAt": "2026-01-08T17:01:00.000Z",
+      "type": "text",
+      "text": "jeg sidder i meeting til halv seks",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "work",
+        "session": 1,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0010",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p5",
+      "senderName": "Noor",
+      "sentAt": "2026-01-08T17:08:00.000Z",
+      "type": "text",
+      "text": "kan komme fra Nørrebro omkring 18",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "place_transport",
+        "session": 1,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0011",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p1",
+      "senderName": "Jasmin",
+      "sentAt": "2026-01-08T17:15:00.000Z",
+      "type": "text",
+      "text": "nice så kontoret først",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "mundane",
+        "session": 1,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0012",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p2",
+      "senderName": "Mikkel",
+      "sentAt": "2026-01-08T17:22:00.000Z",
+      "type": "text",
+      "text": "hvem tager kort med til baren",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "mundane",
+        "session": 1,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0013",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p3",
+      "senderName": "Sara",
+      "sentAt": "2026-01-08T17:29:00.000Z",
+      "type": "text",
+      "text": "vi har firmaarmbånd et sted tror jeg",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "work",
+        "session": 1,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0014",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p4",
+      "senderName": "Tobias",
+      "sentAt": "2026-01-08T17:36:00.000Z",
+      "type": "text",
+      "text": "hvis outlook sender en mail mere skriger jeg 😩",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "anger",
+        "session": 1,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0015",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p5",
+      "senderName": "Noor",
+      "sentAt": "2026-01-08T17:43:00.000Z",
+      "type": "text",
+      "text": "tag en pause mand",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "social",
+        "session": 1,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0016",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p1",
+      "senderName": "Jasmin",
+      "sentAt": "2026-01-08T17:50:00.000Z",
+      "type": "text",
+      "text": "jeg har lyst til is senere 🍦",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "food_drink",
+        "session": 1,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0017",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p2",
+      "senderName": "Mikkel",
+      "sentAt": "2026-01-08T17:57:00.000Z",
+      "type": "text",
+      "text": "pizza er måske for tungt før bytur",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "food_drink",
+        "session": 1,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0018",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p3",
+      "senderName": "Sara",
+      "sentAt": "2026-01-08T18:04:00.000Z",
+      "type": "text",
+      "text": "kan også bare være pommes et sted",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "food_drink",
+        "session": 1,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0019",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p4",
+      "senderName": "Tobias",
+      "sentAt": "2026-01-08T18:11:00.000Z",
+      "type": "text",
+      "text": "jeg gider ikke Fields fredag efter arbejde",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "place_transport",
+        "session": 1,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0020",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p5",
+      "senderName": "Noor",
+      "sentAt": "2026-01-08T18:18:00.000Z",
+      "type": "text",
+      "text": "nej nej ingen Fields",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "place_transport",
+        "session": 1,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0021",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p1",
+      "senderName": "Jasmin",
+      "sentAt": "2026-01-08T18:25:00.000Z",
+      "type": "text",
+      "text": "vi mødes ikke på Rådhuspladsen vel",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "place_transport",
+        "session": 1,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0022",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p2",
+      "senderName": "Mikkel",
+      "sentAt": "2026-01-08T18:32:00.000Z",
+      "type": "text",
+      "text": "helst ikke der er altid kaos",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "place_transport",
+        "session": 1,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0023",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p3",
+      "senderName": "Sara",
+      "sentAt": "2026-01-08T18:39:00.000Z",
+      "type": "text",
+      "text": "kontoret -> øl -> mad -> byen",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "food_drink",
+        "session": 1,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0024",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p4",
+      "senderName": "Tobias",
+      "sentAt": "2026-01-08T18:46:00.000Z",
+      "type": "text",
+      "text": "lyder som et projekt i jira",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "work",
+        "session": 1,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0025",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p5",
+      "senderName": "Noor",
+      "sentAt": "2026-01-08T18:53:00.000Z",
+      "type": "text",
+      "text": "haha tobias laver roadmap 😅",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "social",
+        "session": 1,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0026",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p1",
+      "senderName": "Jasmin",
+      "sentAt": "2026-01-08T19:00:00.000Z",
+      "type": "text",
+      "text": "jeg kan booke bord hvis nogen svarer",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "mundane",
+        "session": 1,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0027",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p2",
+      "senderName": "Mikkel",
+      "sentAt": "2026-01-08T19:07:00.000Z",
+      "type": "text",
+      "text": "jeg svarer nu",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "mundane",
+        "session": 1,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0028",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p3",
+      "senderName": "Sara",
+      "sentAt": "2026-01-08T19:14:00.000Z",
+      "type": "text",
+      "text": "jeg kommer",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "social",
+        "session": 1,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0029",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p4",
+      "senderName": "Tobias",
+      "sentAt": "2026-01-08T19:21:00.000Z",
+      "type": "text",
+      "text": "kommer nok men er træt",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "sadness",
+        "session": 1,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0030",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p5",
+      "senderName": "Noor",
+      "sentAt": "2026-01-08T19:28:00.000Z",
+      "type": "text",
+      "text": "jeg kommer også",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "social",
+        "session": 1,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0031",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p1",
+      "senderName": "Jasmin",
+      "sentAt": "2026-01-08T19:35:00.000Z",
+      "type": "text",
+      "text": "så fire måske fem",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "mundane",
+        "session": 1,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0032",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p2",
+      "senderName": "Mikkel",
+      "sentAt": "2026-01-08T19:42:00.000Z",
+      "type": "text",
+      "text": "er emil med i chatten",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "social",
+        "session": 1,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0033",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p5",
+      "senderName": "Noor",
+      "sentAt": "2026-01-08T19:49:00.000Z",
+      "type": "text",
+      "text": "freja sagde måske",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "social",
+        "session": 1,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0034",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p3",
+      "senderName": "Sara",
+      "sentAt": "2026-01-08T19:56:00.000Z",
+      "type": "text",
+      "text": "vi behøver ikke flere altså",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "mundane",
+        "session": 1,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0035",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p4",
+      "senderName": "Tobias",
+      "sentAt": "2026-01-08T20:03:00.000Z",
+      "type": "text",
+      "text": "jeg er sur på budgetarket 😠",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "anger",
+        "session": 1,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0036",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p2",
+      "senderName": "Mikkel",
+      "sentAt": "2026-01-08T20:10:00.000Z",
+      "type": "text",
+      "text": "budgetarket har ødelagt mange aftener",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "anger",
+        "session": 1,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0037",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p1",
+      "senderName": "Jasmin",
+      "sentAt": "2026-01-08T20:17:00.000Z",
+      "type": "text",
+      "text": "jeg køber snacks i Netto på vej hjem",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "food_drink",
+        "session": 1,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0038",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p5",
+      "senderName": "Noor",
+      "sentAt": "2026-01-08T20:24:00.000Z",
+      "type": "text",
+      "text": "køb også cola hvis det er billigt",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "food_drink",
+        "session": 1,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0039",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p3",
+      "senderName": "Sara",
+      "sentAt": "2026-01-08T20:31:00.000Z",
+      "type": "text",
+      "text": "jeg har rugbrød og ost lol",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "food_drink",
+        "session": 1,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0040",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p2",
+      "senderName": "Mikkel",
+      "sentAt": "2026-01-08T20:38:00.000Z",
+      "type": "text",
+      "text": "stærk fredagsmenu",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "food_drink",
+        "session": 1,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0041",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p4",
+      "senderName": "Tobias",
+      "sentAt": "2026-01-08T20:45:00.000Z",
+      "type": "text",
+      "text": "jeg skal bare have en øl og stilhed 🍺",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "food_drink",
+        "session": 1,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0042",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p1",
+      "senderName": "Jasmin",
+      "sentAt": "2026-01-08T20:52:00.000Z",
+      "type": "text",
+      "text": "stilhed får du ikke med os",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "social",
+        "session": 1,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0043",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p5",
+      "senderName": "Noor",
+      "sentAt": "2026-01-08T20:59:00.000Z",
+      "type": "text",
+      "text": "det bliver hyggeligt 😊",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "social",
+        "session": 1,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0044",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p3",
+      "senderName": "Sara",
+      "sentAt": "2026-01-08T21:06:00.000Z",
+      "type": "text",
+      "text": "sender lige en poll senere",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "mundane",
+        "session": 1,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0045",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p2",
+      "senderName": "Mikkel",
+      "sentAt": "2026-01-08T21:13:00.000Z",
+      "type": "text",
+      "text": "gør det ikke for avanceret",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "mundane",
+        "session": 1,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0046",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p3",
+      "senderName": "Sara",
+      "sentAt": "2026-01-09T07:10:00.000Z",
+      "type": "text",
+      "text": "godmorgen 🙂 er planen stadig i dag",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "social",
+        "session": 2,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0047",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p1",
+      "senderName": "Jasmin",
+      "sentAt": "2026-01-09T07:22:00.000Z",
+      "type": "text",
+      "text": "ja men jeg har sovet elendigt",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "sadness",
+        "session": 2,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0048",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p2",
+      "senderName": "Mikkel",
+      "sentAt": "2026-01-09T07:34:00.000Z",
+      "type": "text",
+      "text": "kaffe først eller går jeg i stykker ☕",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "food_drink",
+        "session": 2,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0049",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p4",
+      "senderName": "Tobias",
+      "sentAt": "2026-01-09T07:46:00.000Z",
+      "type": "text",
+      "text": "jeg er allerede på kontoret",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "work",
+        "session": 2,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0050",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p5",
+      "senderName": "Noor",
+      "sentAt": "2026-01-09T07:58:00.000Z",
+      "type": "text",
+      "text": "jeg sidder i bus mod Aarhus C først",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "place_transport",
+        "session": 2,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0051",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p3",
+      "senderName": "Sara",
+      "sentAt": "2026-01-09T08:10:00.000Z",
+      "type": "text",
+      "text": "hvad laver du i Aarhus C i dag",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "place_transport",
+        "session": 2,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0052",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p5",
+      "senderName": "Noor",
+      "sentAt": "2026-01-09T08:22:00.000Z",
+      "type": "text",
+      "text": "kundemøde i morges det var en fejl",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "work",
+        "session": 2,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0053",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p2",
+      "senderName": "Mikkel",
+      "sentAt": "2026-01-09T08:34:00.000Z",
+      "type": "text",
+      "text": "fredagsbar fra 16 siger intranettet",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "work",
+        "session": 2,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0054",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p1",
+      "senderName": "Jasmin",
+      "sentAt": "2026-01-09T08:46:00.000Z",
+      "type": "text",
+      "text": "fra 16 er ulovligt tidligt",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "mundane",
+        "session": 2,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0055",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p4",
+      "senderName": "Tobias",
+      "sentAt": "2026-01-09T08:58:00.000Z",
+      "type": "text",
+      "text": "jeg har review 16:30 og jeg er bitter",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "anger",
+        "session": 2,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0056",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p3",
+      "senderName": "Sara",
+      "sentAt": "2026-01-09T09:10:00.000Z",
+      "type": "text",
+      "text": "så starter vi uden dig men gemmer en stol",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "social",
+        "session": 2,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0057",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p4",
+      "senderName": "Tobias",
+      "sentAt": "2026-01-09T09:22:00.000Z",
+      "type": "text",
+      "text": "seriøst jeg hader det møde 😡",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "anger",
+        "session": 2,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0058",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p5",
+      "senderName": "Noor",
+      "sentAt": "2026-01-09T09:34:00.000Z",
+      "type": "text",
+      "text": "kom nu med bagefter",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "social",
+        "session": 2,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0059",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p1",
+      "senderName": "Jasmin",
+      "sentAt": "2026-01-09T09:46:00.000Z",
+      "type": "text",
+      "text": "jeg skal lige printe noget",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "work",
+        "session": 2,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0060",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p2",
+      "senderName": "Mikkel",
+      "sentAt": "2026-01-09T09:58:00.000Z",
+      "type": "text",
+      "text": "printeren virker aldrig 😅",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "work",
+        "session": 2,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0061",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p3",
+      "senderName": "Sara",
+      "sentAt": "2026-01-09T10:10:00.000Z",
+      "type": "text",
+      "text": "jeg tager min laptop med hvis jeg skal gå tidligt 💻",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "work",
+        "session": 2,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0062",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p4",
+      "senderName": "Tobias",
+      "sentAt": "2026-01-09T10:22:00.000Z",
+      "type": "text",
+      "text": "magter ikke den mail 😩",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "work",
+        "session": 2,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0063",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p5",
+      "senderName": "Noor",
+      "sentAt": "2026-01-09T10:34:00.000Z",
+      "type": "text",
+      "text": "kaffe hjælper ikke lige nu",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "food_drink",
+        "session": 2,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0064",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p1",
+      "senderName": "Jasmin",
+      "sentAt": "2026-01-09T10:46:00.000Z",
+      "type": "text",
+      "text": "kaffe om lidt? ☕",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "food_drink",
+        "session": 2,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0065",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p2",
+      "senderName": "Mikkel",
+      "sentAt": "2026-01-09T10:58:00.000Z",
+      "type": "text",
+      "text": "ja tak",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "mundane",
+        "session": 2,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0066",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p3",
+      "senderName": "Sara",
+      "sentAt": "2026-01-09T11:10:00.000Z",
+      "type": "text",
+      "text": "jeg kan først spise frokost efter 13",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "food_drink",
+        "session": 2,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0067",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p4",
+      "senderName": "Tobias",
+      "sentAt": "2026-01-09T11:22:00.000Z",
+      "type": "text",
+      "text": "frokost bliver et æble ved skærmen igen",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "food_drink",
+        "session": 2,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0068",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p5",
+      "senderName": "Noor",
+      "sentAt": "2026-01-09T11:34:00.000Z",
+      "type": "text",
+      "text": "nej tobias det er trist",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "sadness",
+        "session": 2,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0069",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p4",
+      "senderName": "Tobias",
+      "sentAt": "2026-01-09T11:46:00.000Z",
+      "type": "text",
+      "text": "det er ikke trist det er consultancy",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "work",
+        "session": 2,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0070",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p1",
+      "senderName": "Jasmin",
+      "sentAt": "2026-01-09T11:58:00.000Z",
+      "type": "text",
+      "text": "jeg er faktisk ked af min kalender i dag 🥲",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "sadness",
+        "session": 2,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0071",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p2",
+      "senderName": "Mikkel",
+      "sentAt": "2026-01-09T12:10:00.000Z",
+      "type": "text",
+      "text": "min kalender er også grim",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "work",
+        "session": 2,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0072",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p3",
+      "senderName": "Sara",
+      "sentAt": "2026-01-09T12:22:00.000Z",
+      "type": "text",
+      "text": "folk svarer ikke på min poll",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "mundane",
+        "session": 2,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0073",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p5",
+      "senderName": "Noor",
+      "sentAt": "2026-01-09T12:34:00.000Z",
+      "type": "text",
+      "text": "jeg svarede altså",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "mundane",
+        "session": 2,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0074",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p2",
+      "senderName": "Mikkel",
+      "sentAt": "2026-01-09T12:46:00.000Z",
+      "type": "text",
+      "text": "jeg trykkede måske på forkert",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "mundane",
+        "session": 2,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0075",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p3",
+      "senderName": "Sara",
+      "sentAt": "2026-01-09T12:58:00.000Z",
+      "type": "text",
+      "text": "du trykkede på tirsdag 🙄",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "mundane",
+        "session": 2,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0076",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p4",
+      "senderName": "Tobias",
+      "sentAt": "2026-01-09T13:10:00.000Z",
+      "type": "text",
+      "text": "jeg kan se jer 18:10 hvis intet brænder",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "place_transport",
+        "session": 2,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0077",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p1",
+      "senderName": "Jasmin",
+      "sentAt": "2026-01-09T13:22:00.000Z",
+      "type": "text",
+      "text": "intet brænder men vores plan er varm 🔥",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "social",
+        "session": 2,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0078",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p5",
+      "senderName": "Noor",
+      "sentAt": "2026-01-09T13:34:00.000Z",
+      "type": "text",
+      "text": "toget er forsinket igen 😩",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "place_transport",
+        "session": 2,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0079",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p2",
+      "senderName": "Mikkel",
+      "sentAt": "2026-01-09T13:46:00.000Z",
+      "type": "text",
+      "text": "klassiker",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "mundane",
+        "session": 2,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0080",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p3",
+      "senderName": "Sara",
+      "sentAt": "2026-01-09T13:58:00.000Z",
+      "type": "text",
+      "text": "vi holder plads",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "mundane",
+        "session": 2,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0081",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p1",
+      "senderName": "Jasmin",
+      "sentAt": "2026-01-09T15:55:00.000Z",
+      "type": "text",
+      "text": "jeg lukker computeren nu",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "work",
+        "session": 2,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0082",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p2",
+      "senderName": "Mikkel",
+      "sentAt": "2026-01-09T16:08:00.000Z",
+      "type": "text",
+      "text": "jeg er ved elevatoren",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "place_transport",
+        "session": 2,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0083",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p3",
+      "senderName": "Sara",
+      "sentAt": "2026-01-09T16:21:00.000Z",
+      "type": "text",
+      "text": "jeg står nede ved receptionen",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "place_transport",
+        "session": 2,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0084",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p5",
+      "senderName": "Noor",
+      "sentAt": "2026-01-09T16:34:00.000Z",
+      "type": "text",
+      "text": "lander på Langebro om 20 min",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "place_transport",
+        "session": 2,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0085",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p4",
+      "senderName": "Tobias",
+      "sentAt": "2026-01-09T16:47:00.000Z",
+      "type": "text",
+      "text": "min chef har lige spurgt om en ting",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "work",
+        "session": 2,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0086",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p1",
+      "senderName": "Jasmin",
+      "sentAt": "2026-01-09T17:00:00.000Z",
+      "type": "text",
+      "text": "nej",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "anger",
+        "session": 2,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0087",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p2",
+      "senderName": "Mikkel",
+      "sentAt": "2026-01-09T17:13:00.000Z",
+      "type": "text",
+      "text": "han må stoppes",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "anger",
+        "session": 2,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0088",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p4",
+      "senderName": "Tobias",
+      "sentAt": "2026-01-09T17:26:00.000Z",
+      "type": "text",
+      "text": "jeg er så sur lige nu",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "anger",
+        "session": 2,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0089",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p3",
+      "senderName": "Sara",
+      "sentAt": "2026-01-09T17:39:00.000Z",
+      "type": "text",
+      "text": "bare sig du har en aftale",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "work",
+        "session": 2,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0090",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p4",
+      "senderName": "Tobias",
+      "sentAt": "2026-01-09T17:52:00.000Z",
+      "type": "text",
+      "text": "jeg sagde fredagsbar som en voksen",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "social",
+        "session": 2,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0091",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p5",
+      "senderName": "Noor",
+      "sentAt": "2026-01-09T18:05:00.000Z",
+      "type": "text",
+      "text": "stolt af dig 👏",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "social",
+        "session": 2,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0092",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p2",
+      "senderName": "Mikkel",
+      "sentAt": "2026-01-09T18:18:00.000Z",
+      "type": "text",
+      "text": "første øl på Apollo? 🍺",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "food_drink",
+        "session": 2,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0093",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p1",
+      "senderName": "Jasmin",
+      "sentAt": "2026-01-09T18:31:00.000Z",
+      "type": "text",
+      "text": "jeg stemmer ja men ingen shots før mad",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "food_drink",
+        "session": 2,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0094",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p3",
+      "senderName": "Sara",
+      "sentAt": "2026-01-09T18:44:00.000Z",
+      "type": "text",
+      "text": "jeg har booket bord 19:30",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "food_drink",
+        "session": 2,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0095",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p5",
+      "senderName": "Noor",
+      "sentAt": "2026-01-09T18:57:00.000Z",
+      "type": "text",
+      "text": "ved Bastard eller hvor",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "place_transport",
+        "session": 2,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0096",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p3",
+      "senderName": "Sara",
+      "sentAt": "2026-01-09T19:10:00.000Z",
+      "type": "text",
+      "text": "nej ved den lille vietnameser",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "place_transport",
+        "session": 2,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0097",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p2",
+      "senderName": "Mikkel",
+      "sentAt": "2026-01-09T19:23:00.000Z",
+      "type": "text",
+      "text": "jeg troede vi skulle have burger 🍔",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "food_drink",
+        "session": 2,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0098",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p4",
+      "senderName": "Tobias",
+      "sentAt": "2026-01-09T19:36:00.000Z",
+      "type": "text",
+      "text": "burger efter øl er farligt",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "food_drink",
+        "session": 2,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0099",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p1",
+      "senderName": "Jasmin",
+      "sentAt": "2026-01-09T19:49:00.000Z",
+      "type": "text",
+      "text": "vi kan dele pizza hvis nogen craver",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "food_drink",
+        "session": 2,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0100",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p5",
+      "senderName": "Noor",
+      "sentAt": "2026-01-09T20:02:00.000Z",
+      "type": "text",
+      "text": "jeg craver bare vand 💦",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "food_drink",
+        "session": 2,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0101",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p3",
+      "senderName": "Sara",
+      "sentAt": "2026-01-09T20:15:00.000Z",
+      "type": "text",
+      "text": "jeg har glemt mit tørklæde på kontoret 😬",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "mundane",
+        "session": 2,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0102",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p2",
+      "senderName": "Mikkel",
+      "sentAt": "2026-01-09T20:28:00.000Z",
+      "type": "text",
+      "text": "skal vi vente",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "social",
+        "session": 2,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0103",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p3",
+      "senderName": "Sara",
+      "sentAt": "2026-01-09T20:41:00.000Z",
+      "type": "text",
+      "text": "nej gå i bare",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "social",
+        "session": 2,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0104",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p4",
+      "senderName": "Tobias",
+      "sentAt": "2026-01-09T20:54:00.000Z",
+      "type": "text",
+      "text": "jeg kommer ned nu 😅",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "place_transport",
+        "session": 2,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0105",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p1",
+      "senderName": "Jasmin",
+      "sentAt": "2026-01-09T21:07:00.000Z",
+      "type": "text",
+      "text": "vi står udenfor og fryser ❄",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "place_transport",
+        "session": 2,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0106",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p5",
+      "senderName": "Noor",
+      "sentAt": "2026-01-09T21:20:00.000Z",
+      "type": "text",
+      "text": "det regner på Nørrebro 🌧",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "place_transport",
+        "session": 2,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0107",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p2",
+      "senderName": "Mikkel",
+      "sentAt": "2026-01-09T21:33:00.000Z",
+      "type": "text",
+      "text": "perfekt fredagsbarvejr lol",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "social",
+        "session": 2,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0108",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p4",
+      "senderName": "Tobias",
+      "sentAt": "2026-01-09T21:46:00.000Z",
+      "type": "text",
+      "text": "jeg har fundet jer",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "place_transport",
+        "session": 2,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0109",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p1",
+      "senderName": "Jasmin",
+      "sentAt": "2026-01-09T21:59:00.000Z",
+      "type": "text",
+      "text": "endelig 🙌",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "social",
+        "session": 2,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0110",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p3",
+      "senderName": "Sara",
+      "sentAt": "2026-01-09T22:12:00.000Z",
+      "type": "text",
+      "text": "skål om lidt 🍻",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "food_drink",
+        "session": 2,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0111",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p2",
+      "senderName": "Mikkel",
+      "sentAt": "2026-01-09T22:25:00.000Z",
+      "type": "text",
+      "text": "skål for at overleve ugen 🍷",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "food_drink",
+        "session": 2,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0112",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p5",
+      "senderName": "Noor",
+      "sentAt": "2026-01-09T22:38:00.000Z",
+      "type": "text",
+      "text": "jeg sender lige location på sms",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "place_transport",
+        "session": 2,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0113",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p4",
+      "senderName": "Tobias",
+      "sentAt": "2026-01-09T22:51:00.000Z",
+      "type": "text",
+      "text": "min telefon er på 4 procent 📱",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "mundane",
+        "session": 2,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0114",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p1",
+      "senderName": "Jasmin",
+      "sentAt": "2026-01-09T23:04:00.000Z",
+      "type": "text",
+      "text": "jeg har powerbank",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "mundane",
+        "session": 2,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0115",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p3",
+      "senderName": "Sara",
+      "sentAt": "2026-01-09T23:17:00.000Z",
+      "type": "text",
+      "text": "vi skal bestille mad nu",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "food_drink",
+        "session": 2,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0116",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p2",
+      "senderName": "Mikkel",
+      "sentAt": "2026-01-09T23:30:00.000Z",
+      "type": "text",
+      "text": "pizza eller nudler? 🍕",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "food_drink",
+        "session": 2,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0117",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p5",
+      "senderName": "Noor",
+      "sentAt": "2026-01-09T23:43:00.000Z",
+      "type": "text",
+      "text": "nudler please",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "food_drink",
+        "session": 2,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0118",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p4",
+      "senderName": "Tobias",
+      "sentAt": "2026-01-09T23:56:00.000Z",
+      "type": "text",
+      "text": "bare ikke salat",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "food_drink",
+        "session": 2,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0119",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p1",
+      "senderName": "Jasmin",
+      "sentAt": "2026-01-10T00:09:00.000Z",
+      "type": "text",
+      "text": "tobias er meget vred på grønt 😂",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "social",
+        "session": 2,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0120",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p3",
+      "senderName": "Sara",
+      "sentAt": "2026-01-10T00:22:00.000Z",
+      "type": "text",
+      "text": "det er fredag lad ham være",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "social",
+        "session": 2,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0121",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p2",
+      "senderName": "Mikkel",
+      "sentAt": "2026-01-10T08:40:00.000Z",
+      "type": "text",
+      "text": "jeg har det mærkeligt",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "sadness",
+        "session": 3,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0122",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p5",
+      "senderName": "Noor",
+      "sentAt": "2026-01-10T08:59:00.000Z",
+      "type": "text",
+      "text": "er alle hjemme? 😂",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "social",
+        "session": 3,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0123",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p1",
+      "senderName": "Jasmin",
+      "sentAt": "2026-01-10T09:18:00.000Z",
+      "type": "text",
+      "text": "jeg er hjemme 🏠",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "place_transport",
+        "session": 3,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0124",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p3",
+      "senderName": "Sara",
+      "sentAt": "2026-01-10T09:37:00.000Z",
+      "type": "text",
+      "text": "taxa hjem nu 🚗😅",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "place_transport",
+        "session": 3,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0125",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p4",
+      "senderName": "Tobias",
+      "sentAt": "2026-01-10T09:56:00.000Z",
+      "type": "text",
+      "text": "jeg blev væk ved garderoben 😂😂",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "social",
+        "session": 3,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0126",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p2",
+      "senderName": "Mikkel",
+      "sentAt": "2026-01-10T10:15:00.000Z",
+      "type": "text",
+      "text": "nej du stod ved siden af os",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "social",
+        "session": 3,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0127",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p4",
+      "senderName": "Tobias",
+      "sentAt": "2026-01-10T10:34:00.000Z",
+      "type": "text",
+      "text": "det føltes ikke sådan",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "sadness",
+        "session": 3,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0128",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p3",
+      "senderName": "Sara",
+      "sentAt": "2026-01-10T10:53:00.000Z",
+      "type": "text",
+      "text": "jeg fandt mit tørklæde 🙈",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "mundane",
+        "session": 3,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0129",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p5",
+      "senderName": "Noor",
+      "sentAt": "2026-01-10T11:12:00.000Z",
+      "type": "text",
+      "text": "hvem tog billedet hvor mikkel spiser pommes 📸😂",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "social",
+        "session": 3,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0130",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p2",
+      "senderName": "Mikkel",
+      "sentAt": "2026-01-10T11:31:00.000Z",
+      "type": "text",
+      "text": "slet det",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "anger",
+        "session": 3,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0131",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p1",
+      "senderName": "Jasmin",
+      "sentAt": "2026-01-10T11:50:00.000Z",
+      "type": "text",
+      "text": "aldrig",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "social",
+        "session": 3,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0132",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p4",
+      "senderName": "Tobias",
+      "sentAt": "2026-01-10T12:09:00.000Z",
+      "type": "text",
+      "text": "jeg har kun et æble mod tømmermænd 😩🍎",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "sadness",
+        "session": 3,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0133",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p3",
+      "senderName": "Sara",
+      "sentAt": "2026-01-10T12:28:00.000Z",
+      "type": "text",
+      "text": "jeg er overraskende frisk 😄",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "social",
+        "session": 3,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0134",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p5",
+      "senderName": "Noor",
+      "sentAt": "2026-01-10T12:47:00.000Z",
+      "type": "text",
+      "text": "min hals er død 😩",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "sadness",
+        "session": 3,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0135",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p2",
+      "senderName": "Mikkel",
+      "sentAt": "2026-01-10T13:06:00.000Z",
+      "type": "text",
+      "text": "jeg er ked af at jeg droppede dansen 🥲",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "sadness",
+        "session": 3,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0136",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p1",
+      "senderName": "Jasmin",
+      "sentAt": "2026-01-10T13:25:00.000Z",
+      "type": "text",
+      "text": "du dansede i 8 minutter",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "social",
+        "session": 3,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0137",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p2",
+      "senderName": "Mikkel",
+      "sentAt": "2026-01-10T13:44:00.000Z",
+      "type": "text",
+      "text": "det tæller ikke",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "social",
+        "session": 3,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0138",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p4",
+      "senderName": "Tobias",
+      "sentAt": "2026-01-10T14:03:00.000Z",
+      "type": "text",
+      "text": "nogen der vil have brunch senere? 🍰😅",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "food_drink",
+        "session": 3,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0139",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p3",
+      "senderName": "Sara",
+      "sentAt": "2026-01-10T14:22:00.000Z",
+      "type": "text",
+      "text": "jeg kan ikke spise endnu",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "food_drink",
+        "session": 3,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0140",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p5",
+      "senderName": "Noor",
+      "sentAt": "2026-01-10T14:41:00.000Z",
+      "type": "text",
+      "text": "jeg vil gerne men først bad 😅",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "mundane",
+        "session": 3,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0141",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p1",
+      "senderName": "Jasmin",
+      "sentAt": "2026-01-10T15:00:00.000Z",
+      "type": "text",
+      "text": "jeg har bestilt burger til sofaen 🍔😅",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "food_drink",
+        "session": 3,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0142",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p2",
+      "senderName": "Mikkel",
+      "sentAt": "2026-01-10T15:19:00.000Z",
+      "type": "text",
+      "text": "mad er en stor beslutning i dag 🤔🍫",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "food_drink",
+        "session": 3,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0143",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p4",
+      "senderName": "Tobias",
+      "sentAt": "2026-01-10T15:38:00.000Z",
+      "type": "text",
+      "text": "jeg tager pizza og lukker verden ude 🍕😩",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "food_drink",
+        "session": 3,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0144",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p3",
+      "senderName": "Sara",
+      "sentAt": "2026-01-10T15:57:00.000Z",
+      "type": "text",
+      "text": "min bankapp siger stop 💰😭",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "sadness",
+        "session": 3,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0145",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p5",
+      "senderName": "Noor",
+      "sentAt": "2026-01-10T16:16:00.000Z",
+      "type": "text",
+      "text": "jeg er lidt ked af at weekenden allerede løber væk 😭",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "sadness",
+        "session": 3,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0146",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p1",
+      "senderName": "Jasmin",
+      "sentAt": "2026-01-11T10:20:00.000Z",
+      "type": "text",
+      "text": "søndagstjek hvem overlevede? ✅😂",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "social",
+        "session": 4,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0147",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p2",
+      "senderName": "Mikkel",
+      "sentAt": "2026-01-11T10:46:00.000Z",
+      "type": "text",
+      "text": "jeg lever men meget langsomt",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "sadness",
+        "session": 4,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0148",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p4",
+      "senderName": "Tobias",
+      "sentAt": "2026-01-11T11:12:00.000Z",
+      "type": "text",
+      "text": "jeg skal arbejde lidt senere 💻😩",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "work",
+        "session": 4,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0149",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p3",
+      "senderName": "Sara",
+      "sentAt": "2026-01-11T11:38:00.000Z",
+      "type": "text",
+      "text": "tak for i går folkens 🥂💕✨",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "social",
+        "session": 4,
+        "isRead": true
+      }
+    },
+    {
+      "id": "msg_0150",
+      "conversationId": "fredagsbar_kbh_001",
+      "senderId": "p5",
+      "senderName": "Noor",
+      "sentAt": "2026-01-11T12:04:00.000Z",
+      "type": "text",
+      "text": "næste gang starter vi tidligere og spiser ordentligt 😂",
+      "edited": false,
+      "replyToMessageId": null,
+      "reactions": [],
+      "attachment": null,
+      "metadata": {
+        "phase": "social",
+        "session": 4,
+        "isRead": true
+      }
+    }
+  ]
+}

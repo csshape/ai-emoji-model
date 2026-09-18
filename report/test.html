@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="da">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Emoji-model · prøvestand</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+  :root {
+    --ground:#f6f7f9; --surface:#fff; --sunken:#eef1f5;
+    --ink:#161a21; --ink-2:#444d5b; --muted:#6b7480; --hairline:#dde2e9;
+    --accent:#1668b8; --accent-2:#7a4bd0; --good:#15803d; --bad:#c2352b;
+    --display:"Archivo","Helvetica Neue",Arial,sans-serif;
+    --body:"IBM Plex Sans","Segoe UI",system-ui,sans-serif;
+    --mono:"IBM Plex Mono","SF Mono",Menlo,monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground:#101318; --surface:#181c23; --sunken:#1f242c;
+      --ink:#e7eaef; --ink-2:#b7c0cc; --muted:#939cab; --hairline:#2a313b;
+      --accent:#57a0e2; --accent-2:#a883ea; --good:#57b177; --bad:#e07366;
+    }
+  }
+  :root[data-theme="dark"] {
+    --ground:#101318; --surface:#181c23; --sunken:#1f242c;
+    --ink:#e7eaef; --ink-2:#b7c0cc; --muted:#939cab; --hairline:#2a313b;
+    --accent:#57a0e2; --accent-2:#a883ea; --good:#57b177; --bad:#e07366;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { height: 100%; }
+  body {
+    margin: 0; background: var(--ground); color: var(--ink);
+    font-family: var(--body); font-size: 15px; line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 860px; margin: 0 auto; padding-inline: 20px; padding-block: 36px 60px; }
+
+  h1 { font-family: var(--display); font-size: clamp(26px,4.5vw,36px); font-weight: 700;
+       letter-spacing: -0.022em; margin: 0 0 6px; }
+  .lede { color: var(--ink-2); margin: 0 0 4px; max-width: 60ch; }
+  .eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em;
+             text-transform: uppercase; color: var(--muted); margin: 0 0 10px; }
+
+  /* input */
+  .ask { display: flex; gap: 10px; margin-top: 26px; }
+  #q {
+    flex: 1; min-width: 0; font: 400 16px/1.5 var(--body); color: var(--ink);
+    background: var(--surface); border: 1px solid var(--hairline);
+    border-radius: 3px; padding: 13px 15px;
+  }
+  #q:focus { outline: 2px solid var(--accent); outline-offset: -1px; border-color: transparent; }
+  button {
+    font: 600 14px var(--body); color: #fff; background: var(--accent);
+    border: 0; border-radius: 3px; padding: 0 22px; cursor: pointer;
+  }
+  button:disabled { opacity: 0.45; cursor: default; }
+  button:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+
+  .chips { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 12px; }
+  .chip {
+    font: 400 13px var(--body); color: var(--ink-2); background: var(--surface);
+    border: 1px solid var(--hairline); border-radius: 100px; padding: 4px 12px;
+    cursor: pointer;
+  }
+  .chip:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* results */
+  .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 24px; }
+  @media (max-width: 640px) { .pair { grid-template-columns: 1fr; } }
+  .card {
+    background: var(--surface); border: 1px solid var(--hairline); border-radius: 3px;
+    padding: 18px; display: flex; flex-direction: column; gap: 14px;
+  }
+  .card header { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; }
+  .card h2 { font-family: var(--display); font-size: 14px; font-weight: 600; margin: 0; }
+  .card .sub { font-family: var(--mono); font-size: 10.5px; color: var(--muted);
+               letter-spacing: 0.06em; text-transform: uppercase; }
+  .out { font-size: 40px; line-height: 1.25; min-height: 52px; letter-spacing: 4px; }
+  .rows { display: flex; flex-direction: column; gap: 5px; }
+  .r { display: grid; grid-template-columns: 30px 1fr 54px; align-items: center; gap: 10px; }
+  .r .e { font-size: 19px; }
+  .r .bar { height: 7px; background: var(--sunken); border-radius: 100px; overflow: hidden; }
+  .r .bar i { display: block; height: 100%; background: var(--accent); border-radius: 100px; }
+  .card.b .r .bar i { background: var(--accent-2); }
+  .r .v { font-family: var(--mono); font-size: 12px; color: var(--muted);
+          text-align: right; font-variant-numeric: tabular-nums; }
+  .ms { font-family: var(--mono); font-size: 11px; color: var(--muted); }
+
+  /* controls */
+  .ctl { display: flex; flex-wrap: wrap; align-items: center; gap: 16px 22px;
+         margin-top: 22px; padding-top: 18px; border-top: 1px solid var(--hairline); }
+  .ctl label { display: flex; align-items: center; gap: 10px; font-size: 13.5px; color: var(--ink-2); }
+  input[type=range] { width: 170px; accent-color: var(--accent); }
+  .val { font-family: var(--mono); font-size: 13px; min-width: 34px; font-variant-numeric: tabular-nums; }
+  .hint { font-size: 13px; color: var(--muted); margin-top: 12px; max-width: 64ch; }
+
+  #status {
+    font-family: var(--mono); font-size: 12.5px; color: var(--muted);
+    background: var(--sunken); border-radius: 3px; padding: 11px 14px; margin-top: 22px;
+  }
+  #status.err { color: var(--bad); }
+  code { font-family: var(--mono); font-size: 0.92em; background: var(--sunken);
+         padding: 1px 5px; border-radius: 2px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <p class="eyebrow">Kører lokalt i browseren · ingen server, intet netværk</p>
+  <h1>Emoji-model · prøvestand</h1>
+  <p class="lede">
+    Begge modeller kører her i fanen, 1.628.416 parametre hver. Skriv noget og se dem svare
+    ved siden af hinanden.
+  </p>
+
+  <div class="ask">
+    <input id="q" type="text" placeholder="Skriv en besked…" autocomplete="off" autofocus>
+    <button id="go" disabled>Svar</button>
+  </div>
+
+  <div class="chips" id="chips"></div>
+
+  <div id="status">Indlæser modeller…</div>
+
+  <div class="pair" hidden id="pair">
+    <div class="card a">
+      <header>
+        <h2>Før</h2>
+        <span class="sub">checkpoints/</span>
+      </header>
+      <div class="out" id="outA"></div>
+      <div class="rows" id="rowsA"></div>
+      <span class="ms" id="msA"></span>
+    </div>
+    <div class="card b">
+      <header>
+        <h2>Efter boost</h2>
+        <span class="sub">checkpoints_codex/</span>
+      </header>
+      <div class="out" id="outB"></div>
+      <div class="rows" id="rowsB"></div>
+      <span class="ms" id="msB"></span>
+    </div>
+  </div>
+
+  <div class="ctl">
+    <label>
+      Prior-korrektion α
+      <input type="range" id="alpha" min="0" max="0.6" step="0.05" value="0.25">
+      <span class="val" id="alphaVal">0,25</span>
+    </label>
+    <label>
+      <input type="checkbox" id="live" checked> Svar mens jeg skriver
+    </label>
+  </div>
+
+  <p class="hint">
+    α dæmper de hyppigste emoji ved at dividere med <code>prior^α</code>. Skruer du den
+    over 0,4, begynder sjældne emoji som flag at vinde — det var sådan <em>beer</em>
+    engang gav 🏴󠁧󠁢󠁷󠁬󠁳󠁿. Produktionsværdien er 0,25.
+  </p>
+
+</div>
+
+<script type="module">
+import { EmojiModel } from "./model/emoji.js";
+
+const PRESETS = ["jeg er sur", "Øl", "frokost", "Fredagsbar om lidt", "kaffe?",
+                 "jeg er så træt", "beer", "tea time", "iphone", "Beer on Langebro",
+                 "vi ses i morgen", "tillykke med dagen"];
+
+const $ = id => document.getElementById(id);
+const status = $("status");
+let A = null, B = null;
+
+$("chips").innerHTML = PRESETS.map(p =>
+  `<button class="chip" type="button">${p.replace(/</g, "&lt;")}</button>`).join("");
+$("chips").addEventListener("click", e => {
+  if (!e.target.classList.contains("chip")) return;
+  $("q").value = e.target.textContent;
+  run();
+});
+
+function render(model, out, rows, ms, text) {
+  const t0 = performance.now();
+  const picks = model.predict(text, parseFloat($("alpha").value));
+  const dt = performance.now() - t0;
+  out.textContent = picks.map(p => p.emoji).join(" ");
+  const max = picks[0].score;
+  rows.innerHTML = picks.map(p =>
+    `<div class="r"><span class="e">${p.emoji}</span>` +
+    `<span class="bar"><i style="width:${Math.max(3, p.score / max * 100).toFixed(1)}%"></i></span>` +
+    `<span class="v">${p.score.toFixed(3).replace(".", ",")}</span></div>`).join("");
+  ms.textContent = dt.toFixed(1).replace(".", ",") + " ms";
+}
+
+function run() {
+  const text = $("q").value.trim();
+  if (!text || !A || !B) return;
+  $("pair").hidden = false;
+  render(A, $("outA"), $("rowsA"), $("msA"), text);
+  render(B, $("outB"), $("rowsB"), $("msB"), text);
+}
+
+$("go").addEventListener("click", run);
+$("q").addEventListener("keydown", e => { if (e.key === "Enter") run(); });
+let timer;
+$("q").addEventListener("input", () => {
+  if (!$("live").checked) return;
+  clearTimeout(timer);
+  timer = setTimeout(run, 160);
+});
+$("alpha").addEventListener("input", () => {
+  $("alphaVal").textContent = parseFloat($("alpha").value).toFixed(2).replace(".", ",");
+  run();
+});
+
+try {
+  [A, B] = await Promise.all([
+    EmojiModel.load("./model/base"),
+    EmojiModel.load("./model/boost"),
+  ]);
+  status.textContent =
+    `Klar · 2 × ${A.cfg.n_layers} lag, d=${A.cfg.d_model}, ${A.emoji.length} emoji, ` +
+    `${A.tok.pieces.length.toLocaleString("da-DK")} subwords`;
+  $("go").disabled = false;
+  $("q").value = "jeg er sur";
+  run();
+} catch (err) {
+  status.className = "err";
+  status.textContent =
+    "Kunne ikke indlæse modellen: " + err.message +
+    " — siden skal serveres over http, ikke åbnes som fil. Kør:  python3 -m http.server 8000  i report/";
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+[project]
+name = "emoji-model"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "datasets>=5.0.1",
+    "emoji>=2.15.0",
+    "numpy>=2.5.3",
+    "regex>=2026.9.10",
+    "sentencepiece>=0.2.2",
+    "torch>=2.14.0",
+    "tqdm>=4.70.1",
+]

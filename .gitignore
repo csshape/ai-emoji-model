@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+.venv
+
+# Derived training artifacts -- hundreds of MB, rebuilt by `prepare`
+data*/
+checkpoints*/
+export/
+
+# ...but data/ itself holds a few shareable files, so let git descend into it
+!data/
+
+# Everything under data/ is ignored, then the shareable parts are let back in.
+# The scraped corpora stay out on purpose: Twitter/X terms allow redistributing
+# tweet IDs but not tweet text, Reddit content is user-owned, and these are real
+# people's messages. Rebuild locally with `python -m emoji_model.build_data`.
+data/*
+!data/emoji_vocab.json
+!data/emoji_vocab_v2.json
+!data/model_config.json
+!data/test_diagnostic.jsonl
+!data/train_codex.jsonl
+!data/testdata_codex/
+!data/traindata_codex/
