@@ -68,8 +68,8 @@
   .chip:hover { border-color: var(--accent); color: var(--accent); }
 
   /* results */
-  .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 24px; }
-  @media (max-width: 640px) { .pair { grid-template-columns: 1fr; } }
+  .pair { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 24px; }
+  @media (max-width: 900px) { .pair { grid-template-columns: 1fr; } }
   .card {
     background: var(--surface); border: 1px solid var(--hairline); border-radius: 3px;
     padding: 18px; display: flex; flex-direction: column; gap: 14px;
@@ -85,6 +85,7 @@
   .r .bar { height: 7px; background: var(--sunken); border-radius: 100px; overflow: hidden; }
   .r .bar i { display: block; height: 100%; background: var(--accent); border-radius: 100px; }
   .card.b .r .bar i { background: var(--accent-2); }
+  .card.c .r .bar i { background: var(--good); }
   .r .v { font-family: var(--mono); font-size: 12px; color: var(--muted);
           text-align: right; font-variant-numeric: tabular-nums; }
   .ms { font-family: var(--mono); font-size: 11px; color: var(--muted); }
@@ -112,7 +113,7 @@
   <p class="eyebrow">Kører lokalt i browseren · ingen server, intet netværk</p>
   <h1>Emoji-model · prøvestand</h1>
   <p class="lede">
-    Begge modeller kører her i fanen, 1.628.416 parametre hver. Skriv noget og se dem svare
+    Tre modeller kører her i fanen, 1,6 mio. parametre hver. Skriv noget og se dem svare
     ved siden af hinanden.
   </p>
 
@@ -137,12 +138,21 @@
     </div>
     <div class="card b">
       <header>
-        <h2>Efter boost</h2>
+        <h2>LLM-boost</h2>
         <span class="sub">checkpoints_codex/</span>
       </header>
       <div class="out" id="outB"></div>
       <div class="rows" id="rowsB"></div>
       <span class="ms" id="msB"></span>
+    </div>
+    <div class="card c">
+      <header>
+        <h2>Nyt vokabular</h2>
+        <span class="sub">checkpoints_v2/</span>
+      </header>
+      <div class="out" id="outC"></div>
+      <div class="rows" id="rowsC"></div>
+      <span class="ms" id="msC"></span>
     </div>
   </div>
 
@@ -174,7 +184,7 @@ const PRESETS = ["jeg er sur", "Øl", "frokost", "Fredagsbar om lidt", "kaffe?",
 
 const $ = id => document.getElementById(id);
 const status = $("status");
-let A = null, B = null;
+let A = null, B = null, C = null;
 
 $("chips").innerHTML = PRESETS.map(p =>
   `<button class="chip" type="button">${p.replace(/</g, "&lt;")}</button>`).join("");
@@ -199,10 +209,11 @@ function render(model, out, rows, ms, text) {
 
 function run() {
   const text = $("q").value.trim();
-  if (!text || !A || !B) return;
+  if (!text || !A || !B || !C) return;
   $("pair").hidden = false;
   render(A, $("outA"), $("rowsA"), $("msA"), text);
   render(B, $("outB"), $("rowsB"), $("msB"), text);
+  render(C, $("outC"), $("rowsC"), $("msC"), text);
 }
 
 $("go").addEventListener("click", run);
@@ -219,12 +230,13 @@ $("alpha").addEventListener("input", () => {
 });
 
 try {
-  [A, B] = await Promise.all([
+  [A, B, C] = await Promise.all([
     EmojiModel.load("./model/base"),
     EmojiModel.load("./model/boost"),
+    EmojiModel.load("./model/v2"),
   ]);
   status.textContent =
-    `Klar · 2 × ${A.cfg.n_layers} lag, d=${A.cfg.d_model}, ${A.emoji.length} emoji, ` +
+    `Klar · 3 × ${A.cfg.n_layers} lag, d=${A.cfg.d_model}, ${A.emoji.length} emoji, ` +
     `${A.tok.pieces.length.toLocaleString("da-DK")} subwords`;
   $("go").disabled = false;
   $("q").value = "jeg er sur";
