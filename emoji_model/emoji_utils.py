@@ -8,6 +8,7 @@ otherwise triple the label space for no semantic gain.
 from __future__ import annotations
 
 import re
+from pathlib import Path
 import unicodedata
 
 import emoji as emoji_lib
@@ -95,3 +96,88 @@ def dedup_preserve_order(items: list[str]) -> list[str]:
             seen.add(it)
             out.append(it)
     return out
+
+
+# --- what kind of thing is this emoji? --------------------------------------
+# Unicode groups these itself in emoji-test.txt, which beats any heuristic:
+# name matching misses 🤯 (exploding head) and 🤣 (rolling on the floor
+# laughing) because neither name contains "face", and codepoint ranges miss
+# ☺ and 🥲 because they sit outside the Emoticons block.
+_GROUP_FILE = Path(__file__).resolve().parent.parent / "data" / "emoji-test.txt"
+_SOCIAL_GROUPS = {"Smileys & Emotion", "People & Body"}
+_OBJECT_GROUPS = {"Animals & Nature", "Food & Drink", "Travel & Places",
+                  "Activities", "Objects"}
+# Unicode calls ✨ and 🔥 objects (Activities / Travel & Places), but in Danish
+# chat they are decoration, not description -- ✨ is the single most common
+# "object" emoji in the corpus and it turns up on messages about nothing in
+# particular. These subgroups are the ones that actually name a thing.
+_CONCRETE_SUBGROUPS = {
+    "animal-mammal", "animal-bird", "animal-amphibian", "animal-reptile",
+    "animal-marine", "animal-bug", "plant-flower", "plant-other",
+    "food-fruit", "food-vegetable", "food-prepared", "food-asian",
+    "food-sweet", "drink", "dishware",
+    "place-map", "place-geographic", "place-building", "place-religious",
+    "place-other", "transport-ground", "transport-water", "transport-air",
+    "hotel", "sky & weather", "sport", "game", "arts & crafts", "clothing",
+    "music", "musical-instrument", "phone", "computer", "light & video",
+    "book-paper", "money", "mail", "writing", "office", "lock", "tool",
+    "science", "medical", "household", "other-object", "time", "event",
+}
+# Inside those subgroups sit a handful that are used as emphasis rather than
+# reference: ✨ is the most common "object" emoji in the Danish corpus and lands
+# on messages about nothing in particular. Their subgroup-mates (🎂 🎁 ☀ 🌧)
+# stay, so this is a deny-list, not a whole subgroup.
+_DECORATIVE = set("✨🔥💫⭐🌟💥🎇🎆🚀💸💦💨🌈💐🌸🌹🌺🌻🌼🍀")
+_KIND: dict[str, str] | None = None
+_CONCRETE: set[str] | None = None
+
+
+def _load_kinds() -> tuple[dict[str, str], set[str]]:
+    kinds: dict[str, str] = {}
+    concrete: set[str] = set()
+    if not _GROUP_FILE.exists():
+        return kinds, concrete
+    group = sub = ""
+    for line in _GROUP_FILE.read_text(encoding="utf-8").splitlines():
+        if line.startswith("# group:"):
+            group = line.split(":", 1)[1].strip()
+        elif line.startswith("# subgroup:"):
+            sub = line.split(":", 1)[1].strip()
+        elif line and not line.startswith("#") and ";" in line:
+            codes, _, rest = line.partition(";")
+            if "fully-qualified" not in rest:
+                continue
+            char = "".join(chr(int(c, 16)) for c in codes.split())
+            kind = ("social" if group in _SOCIAL_GROUPS else
+                    "object" if group in _OBJECT_GROUPS else
+                    "flag" if group == "Flags" else "symbol")
+            key = normalise_emoji(char)
+            kinds[key] = kind
+            if sub in _CONCRETE_SUBGROUPS:
+                concrete.add(key)
+    return kinds, concrete
+
+
+def emoji_kind(e: str) -> str:
+    """Unicode's own grouping, collapsed to social / object / symbol / flag."""
+    global _KIND, _CONCRETE
+    if _KIND is None:
+        _KIND, _CONCRETE = _load_kinds()
+    return _KIND.get(normalise_emoji(e), "symbol")
+
+
+def is_object_emoji(e: str) -> bool:
+    return emoji_kind(e) == "object"
+
+
+def is_concrete_emoji(e: str) -> bool:
+    """Names an actual thing: food, drink, a place, transport, an animal.
+
+    Narrower than is_object_emoji, which follows Unicode and so counts ✨ and
+    🔥 as objects. This is the set worth measuring content behaviour against.
+    """
+    global _KIND, _CONCRETE
+    if _KIND is None:
+        _KIND, _CONCRETE = _load_kinds()
+    key = normalise_emoji(e)
+    return key in (_CONCRETE or set()) and key not in _DECORATIVE

@@ -26,6 +26,10 @@ from .emoji_utils import dedup_preserve_order, split_emoji
 
 GENERIC = {"😂", "😅", "😊", "🤣", "😉", "😄", "😁", "🙂", "☺", "😃", "😆", "🙃"}
 
+VOCAB_RULE = (
+    "\n\nBrug KUN emoji fra denne liste — alt udenfor er ubrugeligt:\n{vocab}"
+)
+
 SYSTEM = (
     "Du vælger emoji-svar til en dansk chatbesked. "
     "Giv 2-3 emoji der tilsammen fanger BÅDE stemningen (glad, træt, irriteret, "
@@ -44,11 +48,11 @@ class LLMUnavailable(RuntimeError):
     """
 
 
-def relabel(text: str, model: str) -> list[str]:
+def relabel(text: str, model: str, system: str = SYSTEM) -> list[str]:
     try:
         r = requests.post("http://localhost:1234/v1/chat/completions", timeout=180, json={
             "model": model,
-            "messages": [{"role": "system", "content": SYSTEM},
+            "messages": [{"role": "system", "content": system},
                          {"role": "user", "content": f"Besked: {text}"}],
             "temperature": 0.3, "max_tokens": 200,
             "reasoning_effort": "low", "stream": False,
@@ -65,6 +69,8 @@ def relabel(text: str, model: str) -> list[str]:
 
 def main() -> None:
     ap = argparse.ArgumentParser()
+    ap.add_argument("--vocab", type=Path, default=Path("data/emoji_vocab_v2.json"),
+                    help="restrict answers to this emoji vocabulary")
     ap.add_argument("--mined", default="data/mined.jsonl")
     ap.add_argument("--out", default="data/relabeled.jsonl")
     ap.add_argument("--model", default="openai/gpt-oss-20b")
@@ -72,6 +78,12 @@ def main() -> None:
     ap.add_argument("--limit", type=int)
     ap.add_argument("--workers", type=int, default=3)
     args = ap.parse_args()
+
+    system = SYSTEM
+    if args.vocab and args.vocab.exists():
+        emojis = json.loads(args.vocab.read_text(encoding="utf-8"))["emojis"]
+        system += VOCAB_RULE.format(vocab=" ".join(emojis))
+        print(f"restricting answers to {len(emojis)} emoji from {args.vocab}")
 
     rows = [json.loads(l) for l in Path(args.mined).open(encoding="utf-8") if l.strip()]
     todo = [r for r in rows
@@ -98,7 +110,7 @@ def main() -> None:
             ThreadPoolExecutor(max_workers=args.workers) as pool:
         bar = tqdm(total=len(todo), unit="msg")
         try:
-            for row, labels in zip(todo, pool.map(lambda r: relabel(r["text"], args.model), todo)):
+            for row, labels in zip(todo, pool.map(lambda r: relabel(r["text"], args.model, system), todo)):
                 bar.update(1)
                 if not labels:
                     # The LLM answered but named no emoji -- keep the original

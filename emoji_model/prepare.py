@@ -33,6 +33,8 @@ def main() -> None:
     ap.add_argument("--text-vocab", type=int, default=8000)
     ap.add_argument("--max-len", type=int, default=64)
     ap.add_argument("--val-frac", type=float, default=0.02)
+    ap.add_argument("--exclude", type=Path, default=None,
+                    help="jsonl whose texts must be kept out of training")
     ap.add_argument("--vocab", type=Path, default=None,
                     help="fixed emoji vocabulary json; default is built from frequency")
     ap.add_argument("--boost", type=Path, default=None,
@@ -52,6 +54,16 @@ def main() -> None:
     print(f"loaded {len(rows):,} mined examples")
     print("  by language:", dict(Counter(r["lang"] for r in rows)))
     print("  by source:  ", dict(Counter(r["src"] for r in rows)))
+
+    if args.exclude:
+        # Held-out test rows. Without this the test set is inside the training
+        # set and every number measured on it is meaningless.
+        blocked = {json.loads(l)["text"]
+                   for l in args.exclude.open(encoding="utf-8") if l.strip()}
+        before = len(rows)
+        rows = [r for r in rows if r["text"] not in blocked]
+        print(f"\nexcluded {before - len(rows):,} held-out rows "
+              f"({args.exclude})")
 
     # --- emoji label space -------------------------------------------------
     if args.vocab:

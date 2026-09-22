@@ -129,7 +129,7 @@
   <div class="pair" hidden id="pair">
     <div class="card a">
       <header>
-        <h2>Før</h2>
+        <h2>Original</h2>
         <span class="sub">checkpoints/</span>
       </header>
       <div class="out" id="outA"></div>
@@ -147,8 +147,8 @@
     </div>
     <div class="card c">
       <header>
-        <h2>Nyt vokabular</h2>
-        <span class="sub">checkpoints_v2/</span>
+        <h2>Relabelleret</h2>
+        <span class="sub">checkpoints_v5/</span>
       </header>
       <div class="out" id="outC"></div>
       <div class="rows" id="rowsC"></div>
@@ -233,7 +233,7 @@ try {
   [A, B, C] = await Promise.all([
     EmojiModel.load("./model/base"),
     EmojiModel.load("./model/boost"),
-    EmojiModel.load("./model/v2"),
+    EmojiModel.load("./model/v5"),
   ]);
   status.textContent =
     `Klar · 3 × ${A.cfg.n_layers} lag, d=${A.cfg.d_model}, ${A.emoji.length} emoji, ` +
