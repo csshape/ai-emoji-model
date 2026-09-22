@@ -37,10 +37,11 @@ def main() -> None:
                     help="jsonl whose texts must be kept out of training")
     ap.add_argument("--vocab", type=Path, default=None,
                     help="fixed emoji vocabulary json; default is built from frequency")
-    ap.add_argument("--boost", type=Path, default=None,
-                    help="extra jsonl mixed into TRAIN only, never val")
+    ap.add_argument("--boost", action="append", default=None, metavar="PATH[:N]",
+                    help="jsonl mixed into TRAIN only, never val; repeat N times. "
+                         "May be given more than once with different weights.")
     ap.add_argument("--boost-repeat", type=int, default=1,
-                    help="how many times to repeat each boost example")
+                    help="default repeat for --boost entries without :N")
     ap.add_argument("--dictionary", help="word list whose entries stay whole tokens")
     ap.add_argument("--protect-words", type=int, default=2000)
     ap.add_argument("--cap-per-emoji", type=int,
@@ -125,12 +126,24 @@ def main() -> None:
     # Boost rows join AFTER the split, so a repeated example can never appear
     # in validation -- that would make the val score meaningless.
     if args.boost:
-        boost = [json.loads(l) for l in args.boost.open(encoding="utf-8") if l.strip()]
         val_texts = {r["text"] for r in splits["val"]}
-        boost = [r for r in boost if r["text"] not in val_texts]
-        splits["train"] = splits["train"] + boost * args.boost_repeat
-        print(f"\nboost: {len(boost):,} examples x{args.boost_repeat} "
-              f"-> train only ({len(boost) * args.boost_repeat:,} rows)")
+        held_out = set()
+        if args.exclude:
+            held_out = {json.loads(l)["text"]
+                        for l in args.exclude.open(encoding="utf-8") if l.strip()}
+        for spec in args.boost:
+            path, _, times = spec.partition(":")
+            repeat = int(times) if times else args.boost_repeat
+            rows_b = [json.loads(l) for l in Path(path).open(encoding="utf-8")
+                      if l.strip()]
+            before = len(rows_b)
+            rows_b = [r for r in rows_b
+                      if r["text"] not in val_texts and r["text"] not in held_out]
+            splits["train"] = splits["train"] + rows_b * repeat
+            dropped = before - len(rows_b)
+            print(f"\nboost {path}: {len(rows_b):,} x{repeat} = "
+                  f"{len(rows_b) * repeat:,} rows into train"
+                  + (f" ({dropped} dropped as val/held-out)" if dropped else ""))
     for name, subset in splits.items():
         ids = torch.zeros((len(subset), args.max_len), dtype=torch.int32)
         targets = torch.zeros((len(subset), len(vocab)), dtype=torch.bool)
