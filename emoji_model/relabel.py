@@ -108,6 +108,10 @@ def _one_call(text: str, model: str, system: str, host: str) -> list[str]:
 
 def main() -> None:
     ap = argparse.ArgumentParser()
+    ap.add_argument("--shard", default=None, metavar="I/N",
+                    help="take only every Nth example, offset I -- so two "
+                         "machines can work the same file without overlap "
+                         "(0/2 here, 1/2 there) and the outputs just concatenate")
     ap.add_argument("--host", action="append", default=None, metavar="URL",
                     help="LM Studio instance, repeatable; unreachable ones are "
                          "dropped at startup (default http://localhost:1234)")
@@ -152,6 +156,11 @@ def main() -> None:
         print(f"resuming: {len(done):,} already relabelled")
 
     todo = [r for r in todo if r["text"] not in done]
+    if args.shard:
+        i, n = (int(x) for x in args.shard.split("/"))
+        before = len(todo)
+        todo = todo[i::n]
+        print(f"shard {i}/{n}: {len(todo):,} of {before:,} examples")
     if args.limit:
         todo = todo[:args.limit]
     print(f"{len(todo):,} examples to relabel (lang={args.lang})")
