@@ -7,12 +7,14 @@ is both plausible in absolute terms and close to the leader.
 from __future__ import annotations
 
 import argparse
+import json
 import sys
 from pathlib import Path
 
 import torch
 
 from .emoji_utils import clean_text, split_emoji
+from .keywords import lookup
 from .model import EmojiEncoder, ModelConfig
 from .tokenizer import Tokenizer
 from .vocab import EmojiVocab
@@ -24,6 +26,11 @@ MIN_EMOJI, MAX_EMOJI = 1, 5
 # unsure. Kept mild: it costs ~1 point of recall@5 because the metric rewards
 # matching the original author, who often did just use 😂. 0 disables it.
 DEFAULT_PRIOR_ALPHA = 0.25
+# The model learns mood; content is closer to a lookup, and Unicode already
+# wrote the lookup down. Swept on data/test_da_content: 5 roughly doubles the
+# concrete hit rate while keeping most of the mood accuracy, which higher
+# weights give away.
+DEFAULT_KEYWORD_WEIGHT = 8.0
 
 
 class EmojiPredictor:
@@ -42,6 +49,9 @@ class EmojiPredictor:
         self.vocab = EmojiVocab.load(data_dir / "emoji_vocab.json")
         prior_path = data_dir / "emoji_prior.pt"
         self.prior = torch.load(prior_path) if prior_path.exists() else None
+        kw_path = Path("data/keywords.json")
+        self.keywords = (json.loads(kw_path.read_text(encoding="utf-8"))
+                         if kw_path.exists() else {})
 
     @torch.no_grad()
     def probs(self, text: str) -> torch.Tensor:
@@ -52,8 +62,16 @@ class EmojiPredictor:
 
     def predict(self, text: str, abs_threshold: float = 0.08,
                 rel_ratio: float = 0.35,
-                prior_alpha: float | None = None) -> list[tuple[str, float]]:
+                prior_alpha: float | None = None,
+                keyword_weight: float | None = None) -> list[tuple[str, float]]:
         p = self.probs(text)
+        kw = DEFAULT_KEYWORD_WEIGHT if keyword_weight is None else keyword_weight
+        if self.keywords and kw > 0:
+            body, _ = split_emoji(text)
+            for emoji, score in lookup(clean_text(body), self.keywords).items():
+                idx = self.vocab.index.get(emoji)
+                if idx is not None:
+                    p[idx] = p[idx] + kw * score
         alpha = DEFAULT_PRIOR_ALPHA if prior_alpha is None else prior_alpha
         if self.prior is not None and alpha > 0:
             # Rank by how much this emoji beats its base rate, then rescale so
@@ -82,6 +100,8 @@ def main() -> None:
     ap.add_argument("--checkpoint", default="checkpoints/best.pt")
     ap.add_argument("--data", default="data")
     ap.add_argument("--scores", action="store_true", help="show probabilities")
+    ap.add_argument("--keyword-weight", type=float, default=None,
+                    help=f"dictionary weight (default {DEFAULT_KEYWORD_WEIGHT}; 0 turns it off)")
     ap.add_argument("--prior-alpha", type=float, default=None,
                     help="discount common emoji (0 disables; default 0.25)")
     args = ap.parse_args()

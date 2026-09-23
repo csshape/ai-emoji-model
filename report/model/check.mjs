@@ -7,7 +7,8 @@ const name = process.argv[2] ?? "base";
 const meta = JSON.parse(readFileSync(`report/model/${name}.json`, "utf8"));
 const bin = readFileSync(`report/model/${name}.bin`);
 const buf = bin.buffer.slice(bin.byteOffset, bin.byteOffset + bin.byteLength);
-const model = new EmojiModel(meta, buf);
+const kw = JSON.parse(readFileSync("report/model/keywords.json", "utf8"));
+const model = new EmojiModel(meta, buf, kw);
 
 const phrases = JSON.parse(readFileSync(process.argv[3], "utf8"));
 const out = {};

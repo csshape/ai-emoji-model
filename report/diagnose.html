@@ -4,253 +4,118 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
 <style>
   :root {
-    --ground:   #f6f7f9;
-    --surface:  #ffffff;
-    --sunken:   #eef1f5;
-    --ink:      #161a21;
-    --ink-2:    #444d5b;
-    --muted:    #6b7480;
-    --hairline: #dde2e9;
-    --accent:   #1668b8;
-    --accent-soft: #e3edf8;
-    --good:     #15803d;
-    --bad:      #c2352b;
-    --even:     #6b7480;
-
-    --display: "Archivo", "Helvetica Neue", Arial, sans-serif;
-    --body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
-    --mono: "IBM Plex Mono", "SF Mono", Menlo, monospace;
+    --ground:#f6f7f9; --surface:#fff; --sunken:#eef1f5;
+    --ink:#161a21; --ink-2:#444d5b; --muted:#6b7480; --hairline:#dde2e9;
+    --accent:#1668b8; --good:#15803d; --bad:#c2352b; --even:#6b7480;
+    --display:"Archivo","Helvetica Neue",Arial,sans-serif;
+    --body:"IBM Plex Sans","Segoe UI",system-ui,sans-serif;
+    --mono:"IBM Plex Mono","SF Mono",Menlo,monospace;
   }
-
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
-      --ground:   #101318;
-      --surface:  #181c23;
-      --sunken:   #1f242c;
-      --ink:      #e7eaef;
-      --ink-2:    #b7c0cc;
-      --muted:    #939cab;
-      --hairline: #2a313b;
-      --accent:   #57a0e2;
-      --accent-soft: #1d2b3a;
-      --good:     #57b177;
-      --bad:      #e07366;
-      --even:     #939cab;
+      --ground:#101318; --surface:#181c23; --sunken:#1f242c;
+      --ink:#e7eaef; --ink-2:#b7c0cc; --muted:#939cab; --hairline:#2a313b;
+      --accent:#57a0e2; --good:#57b177; --bad:#e07366; --even:#939cab;
     }
   }
-
   :root[data-theme="dark"] {
-    --ground:   #101318;
-    --surface:  #181c23;
-    --sunken:   #1f242c;
-    --ink:      #e7eaef;
-    --ink-2:    #b7c0cc;
-    --muted:    #939cab;
-    --hairline: #2a313b;
-    --accent:   #57a0e2;
-    --accent-soft: #1d2b3a;
-    --good:     #57b177;
-    --bad:      #e07366;
-    --even:     #939cab;
+    --ground:#101318; --surface:#181c23; --sunken:#1f242c;
+    --ink:#e7eaef; --ink-2:#b7c0cc; --muted:#939cab; --hairline:#2a313b;
+    --accent:#57a0e2; --good:#57b177; --bad:#e07366; --even:#939cab;
   }
 
-  body {
-    background: var(--ground);
-    color: var(--ink);
-    font-family: var(--body);
-    font-size: 15px;
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-  }
+  body { background: var(--ground); color: var(--ink); font-family: var(--body);
+         font-size: 15px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  .wrap { max-width: 900px; margin: 0 auto; padding-inline: 20px; padding-block: 40px 72px; }
 
-  .wrap {
-    max-width: 980px;
-    margin: 0 auto;
-    padding-inline: 20px;
-    padding-block: 40px 72px;
-  }
-
-  h1, h2, h3 { font-family: var(--display); text-wrap: balance; margin: 0; }
-  h1 { font-size: clamp(30px, 5vw, 46px); font-weight: 700; letter-spacing: -0.022em; line-height: 1.08; }
+  h1,h2,h3 { font-family: var(--display); text-wrap: balance; margin: 0; }
+  h1 { font-size: clamp(30px,5vw,44px); font-weight: 700; letter-spacing: -0.022em; line-height: 1.08; }
   h2 { font-size: 21px; font-weight: 600; letter-spacing: -0.01em; }
-  h3 { font-size: 15px; font-weight: 600; letter-spacing: -0.005em; }
+  h3 { font-size: 15px; font-weight: 600; }
   p { margin: 0; }
-
-  .eyebrow {
-    font-family: var(--mono);
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--muted);
-  }
-
+  .eyebrow { font-family: var(--mono); font-size: 11px; font-weight: 500;
+             letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
   header { display: flex; flex-direction: column; gap: 14px; }
   .lede { font-size: 17px; color: var(--ink-2); max-width: 62ch; }
-
   .rule { height: 1px; background: var(--hairline); border: 0; margin-block: 40px; }
-
   section { display: flex; flex-direction: column; gap: 18px; }
   .section-head { display: flex; flex-direction: column; gap: 6px; }
-  .note { font-size: 14px; color: var(--ink-2); max-width: 66ch; }
+  .note { font-size: 14px; color: var(--ink-2); max-width: 68ch; }
+  a { color: var(--accent); }
 
-  /* ---------- verdict strip ---------- */
-  .verdict {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1px;
-    background: var(--hairline);
-    border: 1px solid var(--hairline);
-    border-radius: 3px;
-    overflow: hidden;
-    margin-top: 26px;
-  }
-  .verdict div { background: var(--surface); padding: 18px 20px; display: flex; flex-direction: column; gap: 4px; }
-  .verdict .k { font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
-  .verdict .v { font-family: var(--mono); font-size: 27px; font-weight: 600; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+  .verdict { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px;
+             background: var(--hairline); border: 1px solid var(--hairline);
+             border-radius: 3px; overflow: hidden; margin-top: 26px; }
+  .verdict div { background: var(--surface); padding: 18px 20px;
+                 display: flex; flex-direction: column; gap: 4px; }
+  .verdict .k { font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em;
+                text-transform: uppercase; color: var(--muted); }
+  .verdict .v { font-family: var(--mono); font-size: 26px; font-weight: 600;
+                letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
   .verdict .d { font-size: 13px; color: var(--ink-2); }
-  @media (max-width: 660px) { .verdict { grid-template-columns: 1fr; } }
+  @media (max-width: 680px) { .verdict { grid-template-columns: 1fr; } }
 
-  /* ---------- bullet chart ---------- */
-  .chart { display: flex; flex-direction: column; gap: 2px; }
-  .chart-head, .row {
-    display: grid;
-    grid-template-columns: 138px 1fr 62px 68px;
-    align-items: center;
-    gap: 14px;
-  }
-  .chart-head {
-    font-family: var(--mono);
-    font-size: 10.5px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--muted);
-    padding-bottom: 8px;
-    border-bottom: 1px solid var(--hairline);
-    margin-bottom: 6px;
-  }
-  .chart-head .num, .row .num { text-align: right; }
-
-  .row { padding-block: 7px; border-radius: 3px; transition: background 120ms ease; }
-  .row:hover { background: var(--sunken); }
-
-  .cat { display: flex; flex-direction: column; gap: 1px; min-width: 0; }
-  .cat b { font-weight: 600; font-size: 14px; letter-spacing: -0.005em; }
-  .cat span { font-family: var(--mono); font-size: 11px; color: var(--muted); font-variant-numeric: tabular-nums; }
-
-  .track { position: relative; height: 26px; background: var(--sunken); border-radius: 2px; }
-  .fill { position: absolute; inset-block: 0; left: 0; background: var(--accent); border-radius: 2px 4px 4px 2px; }
-  .track.pair .fill { height: 11px; }
-  .track.pair .fill.before { top: 2px; background: var(--muted); }
-  .track.pair .fill.after { top: 15px; background: var(--accent); }
-  .tick { position: absolute; inset-block: -3px; width: 2px; background: var(--ink); opacity: 0.62; }
-  .tick::after {
-    content: attr(data-lab);
-    position: absolute; top: -17px; left: 50%; transform: translateX(-50%);
-    font-family: var(--mono); font-size: 10px; color: var(--muted); white-space: nowrap;
-  }
-  .row:first-of-type .tick::after { content: attr(data-lab); }
-
-  .num { font-family: var(--mono); font-size: 14px; font-variant-numeric: tabular-nums; }
-  .delta { font-family: var(--mono); font-size: 13.5px; font-variant-numeric: tabular-nums; text-align: right; font-weight: 500; }
-  .delta.up { color: var(--good); }
-  .delta.down { color: var(--bad); }
-  .delta.flat { color: var(--even); }
-
-  .legend {
-    display: flex; flex-wrap: wrap; gap: 20px;
-    font-size: 13px; color: var(--ink-2);
-    padding-top: 14px; margin-top: 6px; border-top: 1px solid var(--hairline);
-  }
-  .legend span { display: inline-flex; align-items: center; gap: 8px; }
-  .sw-bar { width: 22px; height: 11px; background: var(--accent); border-radius: 2px; flex: none; }
-  .sw-tick { width: 2px; height: 15px; background: var(--ink); opacity: 0.62; flex: none; }
-
-  /* ---------- panels ---------- */
-  .panels { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 16px; }
-  .panel {
-    background: var(--surface);
-    border: 1px solid var(--hairline);
-    border-radius: 3px;
-    padding: 20px;
-    display: flex; flex-direction: column; gap: 12px;
-  }
-  .panel h3 { color: var(--ink); }
-  .panel p { font-size: 13.5px; color: var(--ink-2); }
-
-  dl.stats { display: flex; flex-direction: column; gap: 0; margin: 0; }
-  dl.stats > div {
-    display: flex; justify-content: space-between; align-items: baseline; gap: 14px;
-    padding-block: 7px;
-    border-bottom: 1px solid var(--hairline);
-  }
-  dl.stats > div:last-child { border-bottom: 0; }
-  dl.stats dt { font-size: 13.5px; color: var(--ink-2); min-width: 0; }
-  dl.stats dd { margin: 0; font-family: var(--mono); font-size: 14px; font-weight: 500; font-variant-numeric: tabular-nums; white-space: nowrap; }
-
-  .bigstat { font-family: var(--mono); font-size: 40px; font-weight: 600; letter-spacing: -0.03em; line-height: 1; }
-  .bigstat small { display: block; font-family: var(--body); font-size: 13px; font-weight: 400; letter-spacing: 0; color: var(--muted); margin-top: 6px; }
-
-  /* ---------- vocab bar ---------- */
-  .vocab { display: flex; height: 30px; border-radius: 2px; overflow: hidden; gap: 2px; }
-  .vocab i { display: block; }
-  .vocab-key { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 12.5px; color: var(--ink-2); }
-  .vocab-key span { display: inline-flex; align-items: center; gap: 7px; }
-  .vocab-key i { width: 10px; height: 10px; border-radius: 2px; flex: none; }
-
-  /* ---------- table ---------- */
   .scroll { overflow-x: auto; }
   table { border-collapse: collapse; width: 100%; font-size: 13.5px; }
-  th, td { text-align: left; padding: 9px 14px 9px 0; border-bottom: 1px solid var(--hairline); white-space: nowrap; }
-  th { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); font-weight: 500; }
-  td.n { font-family: var(--mono); text-align: right; font-variant-numeric: tabular-nums; padding-right: 0; }
-  td.em { font-size: 17px; }
+  th, td { text-align: left; padding: 9px 16px 9px 0; border-bottom: 1px solid var(--hairline); white-space: nowrap; }
+  th { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.1em;
+       text-transform: uppercase; color: var(--muted); font-weight: 500; }
+  td.n, th.n { font-family: var(--mono); text-align: right; font-variant-numeric: tabular-nums; }
+  td.em { font-size: 18px; letter-spacing: 2px; }
+  tr.now td { font-weight: 600; }
+  .up { color: var(--good); } .down { color: var(--bad); } .flat { color: var(--even); }
 
-  /* ---------- training ---------- */
-  .train { display: grid; grid-template-columns: 1fr 240px; gap: 28px; align-items: center; }
-  @media (max-width: 720px) { .train { grid-template-columns: 1fr; } }
-  .live {
-    display: inline-flex; align-items: center; gap: 7px;
-    font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
-    color: var(--accent);
-  }
-  .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); flex: none; }
-  @media (prefers-reduced-motion: no-preference) {
-    .dot { animation: pulse 2s ease-in-out infinite; }
-    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
-  }
-
-  footer { margin-top: 44px; padding-top: 20px; border-top: 1px solid var(--hairline); font-size: 13px; color: var(--muted); }
-  code { font-family: var(--mono); font-size: 0.92em; background: var(--sunken); padding: 1px 5px; border-radius: 2px; }
+  .panels { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap: 16px; }
+  .panel { background: var(--surface); border: 1px solid var(--hairline);
+           border-radius: 3px; padding: 20px; display: flex; flex-direction: column; gap: 12px; }
+  .panel p { font-size: 13.5px; color: var(--ink-2); }
+  dl.stats { display: flex; flex-direction: column; margin: 0; }
+  dl.stats > div { display: flex; justify-content: space-between; align-items: baseline;
+                   gap: 14px; padding-block: 7px; border-bottom: 1px solid var(--hairline); }
+  dl.stats > div:last-child { border-bottom: 0; }
+  dl.stats dt { font-size: 13.5px; color: var(--ink-2); }
+  dl.stats dd { margin: 0; font-family: var(--mono); font-size: 14px; font-weight: 500;
+                font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .bigstat { font-family: var(--mono); font-size: 38px; font-weight: 600;
+             letter-spacing: -0.03em; line-height: 1; }
+  .bigstat small { display: block; font-family: var(--body); font-size: 13px;
+                   font-weight: 400; letter-spacing: 0; color: var(--muted); margin-top: 6px; }
+  code { font-family: var(--mono); font-size: 0.92em; background: var(--sunken);
+         padding: 1px 5px; border-radius: 2px; }
+  footer { margin-top: 44px; padding-top: 20px; border-top: 1px solid var(--hairline);
+           font-size: 13px; color: var(--muted); }
+  .cta { display: inline-block; margin-top: 4px; font-size: 14px; }
 </style>
 
 <div class="wrap">
 
   <header>
-    <p class="eyebrow">Afsluttet 18. september kl. 14.12 · øjebliksbillede, ikke live</p>
+    <p class="eyebrow">Opdateret 22. september · øjebliksbillede, ikke live</p>
     <h1>Hvor emoji-modellen fejler</h1>
     <p class="lede">
-      Vi fodrede modellen med 689 LLM-skrevne træningseksempler i de kategorier, den
-      var dårligst til. På LLM-testsættet steg den 54&nbsp;%. På ægte dansk og engelsk
-      chat flyttede den sig ikke. Her er hvorfor det er den vigtigste måling i projektet.
+      En model på 1,6 millioner parametre skal svare på en dansk chatbesked med 1–5 emoji.
+      Den kan stemning. Den kan ikke ting. Det meste af arbejdet har handlet om at finde ud
+      af, hvordan man overhovedet måler det — for den målestok vi startede med, belønnede
+      præcis den adfærd, vi prøvede at fjerne.
     </p>
+    <p><a class="cta" href="https://csshape.github.io/ai-emoji-model/report/test.html">Prøv modellerne selv →</a></p>
   </header>
 
   <div class="verdict">
     <div>
-      <span class="k">LLM-testsæt</span>
-      <span class="v" style="color:var(--good)">+54&nbsp;%</span>
-      <span class="d">recall@5 0,274 → 0,421 · ser ud som et gennembrud</span>
+      <span class="k">Ærligt tal i dag</span>
+      <span class="v">0,076</span>
+      <span class="d">recall@5 på danske beskeder med en konkret emoji</span>
     </div>
     <div>
-      <span class="k">Ægte tekst</span>
-      <span class="v" style="color:var(--bad)">−0,007</span>
-      <span class="d">recall@5 0,241 → 0,234 · 95&nbsp;% CI krydser nul</span>
+      <span class="k">Svarer med en ting</span>
+      <span class="v" style="color:var(--good)">12&nbsp;%</span>
+      <span class="d">fordoblet, fra 6&nbsp;% før relabelleringen</span>
     </div>
     <div>
-      <span class="k">Konklusion</span>
-      <span class="v" style="font-size:19px;letter-spacing:0">Ingen effekt</span>
-      <span class="d">Modellen lærte at være enig med generatoren</span>
+      <span class="k">Stadig uløst</span>
+      <span class="v" style="font-size:18px;letter-spacing:0">9 ud af 10</span>
+      <span class="d">gange rammer top-5 ikke den ting, mennesket skrev</span>
     </div>
   </div>
 
@@ -258,11 +123,66 @@
 
   <section>
     <div class="section-head">
-      <h2>Fælden, og hvorfor vi fangede den</h2>
+      <h2>Målestokken var forkert</h2>
       <p class="note">
-        Havde vi kun målt på det testsæt, den nye træningsdata stammer fra, ville vi have
-        rapporteret en stor sejr. Derfor blev der målt på to sæt fra start: ét fra samme
-        kilde som træningsdataene, og ét med ægte tekst og menneske-skrevne emoji.
+        Vi brugte flere dage på at optimere recall@5 mod menneskelige labels. På dansk
+        måler det noget andet, end vi troede.
+      </p>
+    </div>
+
+    <div class="panels">
+      <div class="panel">
+        <h3>Emoji er tegnsætning på dansk</h3>
+        <dl class="stats">
+          <div><dt>Emoji sidst i beskeden</dt><dd>89&nbsp;%</dd></div>
+          <div><dt>Beskeder uden <code>.</code> <code>!</code> <code>?</code></dt><dd>76&nbsp;%</dd></div>
+          <div><dt>😂 😅 🙈 placeret sidst</dt><dd>100&nbsp;%</dd></div>
+        </dl>
+        <p>
+          Emojien erstatter punktummet. Derfor svarer den første model 😂 på
+          <em>jeg er sur</em>: blandt 1.895 danske beskeder med ordet «sur» er 😂
+          det hyppigste label. Den er ikke morsom — den sætter punktum.
+        </p>
+      </div>
+
+      <div class="panel">
+        <h3>Facit belønnede det</h3>
+        <dl class="stats">
+          <div><dt>Dansk facit: kun smileys</dt><dd>49&nbsp;%</dd></div>
+          <div><dt>Dansk facit: har en ting</dt><dd>22&nbsp;%</dd></div>
+          <div><dt>Engelsk facit: kun smileys</dt><dd>14&nbsp;%</dd></div>
+          <div><dt>Engelsk facit: har en ting</dt><dd>71&nbsp;%</dd></div>
+        </dl>
+        <p>
+          En model der svarer 🍻 på «Øl» blev talt som <em>forkert</em>, fordi mennesket
+          skrev 😂. Halvdelen af den danske måling straffede altså det, produktet skal gøre.
+        </p>
+      </div>
+
+      <div class="panel">
+        <h3>Samme ord, to sprog</h3>
+        <p>Danske beskeder om cykling, og engelske om det samme:</p>
+        <dl class="stats">
+          <div><dt>🇩🇰 328 tekster</dt><dd>😂×52 😅×40 😊×17</dd></div>
+          <div><dt>🇬🇧 237 tekster</dt><dd>🚲×54 🤙×31 👇×30</dd></div>
+        </dl>
+        <p>
+          Ikke ét 🚲 i de danske. Danskere sætter punktum; englændere beskriver.
+          Modellen lærte begge dele af samme træningskørsel.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <section>
+    <div class="section-head">
+      <h2>En ny målestok, og hvad den afslørede</h2>
+      <p class="note">
+        <code>test_da_content</code>: 1.500 ægte danske beskeder, hvor mennesket
+        <em>selv</em> greb efter en konkret emoji — mad, sted, transport, ting. Facit er
+        menneskeskrevet, ikke LLM-genereret, så vi måler ikke enighed med en LLM.
       </p>
     </div>
 
@@ -270,186 +190,55 @@
       <table>
         <thead>
           <tr>
-            <th>Testsæt</th><th>Kilde</th>
-            <th class="n" style="text-align:right">Før</th>
-            <th class="n" style="text-align:right">Efter</th>
-            <th class="n" style="text-align:right">Forskel</th>
-            <th>95&nbsp;% CI</th>
+            <th>Model</th><th>Hvad den fik</th>
+            <th class="n">recall@5</th><th class="n">svarer ting</th><th>Målt rent?</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td><code>test_diagnostic</code></td>
-            <td>Codex — samme kilde som træningsdata</td>
-            <td class="n">0,274</td><td class="n">0,421</td>
-            <td class="n" style="color:var(--good)">+0,147 ▲</td>
-            <td style="color:var(--muted)">—</td>
-          </tr>
-          <tr>
-            <td><code>short_test</code> · alle</td>
-            <td>Ægte Reddit og Twitter, menneske-labels</td>
-            <td class="n">0,241</td><td class="n">0,234</td>
-            <td class="n" style="color:var(--bad)">−0,007</td>
-            <td>[−0,018, +0,002]</td>
-          </tr>
-          <tr>
-            <td><code>short_test</code> · dansk</td>
-            <td>592 eksempler</td>
-            <td class="n">0,376</td><td class="n">0,384</td>
-            <td class="n" style="color:var(--even)">+0,008</td>
-            <td>[−0,015, +0,032]</td>
-          </tr>
-          <tr>
-            <td><code>short_test</code> · engelsk</td>
-            <td>2.388 eksempler</td>
-            <td class="n">0,207</td><td class="n">0,196</td>
-            <td class="n" style="color:var(--even)">−0,011</td>
-            <td>[−0,022, +0,000]</td>
-          </tr>
+          <tr><td>original</td><td>menneskelabels, gammelt vokabular</td>
+              <td class="n">0,094</td><td class="n">4&nbsp;%</td>
+              <td class="down">nej — så testsættet</td></tr>
+          <tr><td>LLM-boost</td><td>+ 689 opdigtede eksempler ×20</td>
+              <td class="n">0,112</td><td class="n">6&nbsp;%</td>
+              <td class="down">nej — så testsættet</td></tr>
+          <tr><td>v4</td><td>+ 8.741 relabellerede ×1</td>
+              <td class="n">0,093</td><td class="n">7&nbsp;%</td>
+              <td class="down">nej — så testsættet</td></tr>
+          <tr><td>v5</td><td>samme som v4</td>
+              <td class="n">0,066</td><td class="n">6&nbsp;%</td>
+              <td class="up">ja</td></tr>
+          <tr class="now"><td>v6</td><td>relabellerede vægtet ×6</td>
+              <td class="n">0,076</td><td class="n">12&nbsp;%</td>
+              <td class="up">ja</td></tr>
         </tbody>
       </table>
     </div>
 
-    <p class="note">
-      Alle tre konfidensintervaller på ægte tekst krydser nul. Der er ingen målbar
-      ændring — hverken til det bedre eller det værre. De +0,147 på LLM-sættet er
-      ikke ny evne; det er enighed med den model, der skrev både træningsdata og test.
-    </p>
-  </section>
-
-  <hr class="rule">
-
-  <section>
-    <div class="section-head">
-      <h2>Kategori for kategori, på LLM-sættet</h2>
-      <p class="note">
-        Her ser forsøget overbevisende ud. Den øverste søjle er modellen før, den nederste
-        efter. Stregen er baselinen — den dummeste tænkelige model, der altid gætter
-        <span style="font-size:16px">😂😅✨😊❤</span> uanset hvad du skriver.
-        Før forsøget lå modellen <em>under</em> baselinen på hverdag og arbejde.
-      </p>
-    </div>
-
-    <div class="chart" id="chart"></div>
-
-    <div class="legend">
-      <span><i class="sw-bar" style="background:var(--muted)"></i> Før</span>
-      <span><i class="sw-bar"></i> Efter</span>
-      <span><i class="sw-tick"></i> Baseline</span>
-      <span style="color:var(--muted)">Skala 0–0,70 · recall@5 · n = 210</span>
-    </div>
-
-    <p class="note">
-      Alle syv kategorier steg, og de tre svageste mest: vrede fra 0,060 til 0,220,
-      sted og transport fra 0,147 til 0,382, mad og drikke fra 0,204 til 0,534.
-      Det er den slags tal man gerne vil vise frem — og de betyder ingenting,
-      fordi testsættet og træningsdataene kommer fra samme generator.
-    </p>
-  </section>
-
-  <hr class="rule">
-
-  <section>
-    <div class="section-head">
-      <h2>Tre målinger der forklarer det</h2>
-    </div>
-
-    <div class="panels">
-
-      <div class="panel">
-        <h3>Emoji er tegnsætning</h3>
-        <p>
-          I de danske chat-feeds erstatter emojien punktummet. Den sætter tone og afslutter
-          sætningen — den beskriver ikke indholdet.
-        </p>
-        <dl class="stats">
-          <div><dt>Emoji sidst i beskeden</dt><dd>89&nbsp;%</dd></div>
-          <div><dt>Beskeder uden <code>.</code> <code>!</code> <code>?</code></dt><dd>76&nbsp;%</dd></div>
-          <div><dt>😂 😅 🙈 placeret sidst</dt><dd>100&nbsp;%</dd></div>
-        </dl>
-        <p>
-          Derfor svarer modellen 😂 på <em>jeg er sur</em>. I træningsdataene er 😂 ikke
-          «morsomt» — det er et punktum. Blandt 1.895 danske beskeder med ordet «sur»
-          er 😂 det hyppigste label.
-        </p>
-      </div>
-
-      <div class="panel">
-        <h3>Vokabularet er formet af Twitter</h3>
-        <p>
-          De 512 pladser blev valgt efter hyppighed i Twitter- og Reddit-data. Der er rigeligt
-          med ting-pladser — men det er Twitters ting: ✨🔥🚀💯📢🏆
-        </p>
-        <div class="vocab" id="vocab"></div>
-        <div class="vocab-key" id="vocab-key"></div>
-        <p>
-          🚲 🔑 🚇 🛏 🥐 📦 findes ikke i vokabularet. Modellen <em>kan</em> ikke svare 🚲
-          på «cykler nu», uanset hvor godt vi træner den. 26 pladser går til flag.
-        </p>
-      </div>
-
-      <div class="panel">
-        <h3>Prior-korrektionen løfter skrald</h3>
-        <p>
-          Vi dividerer sandsynligheden med <code>prior<sup>α</sup></code> for at dæmpe de
-          hyppigste emoji. Det forstærker samtidig de sjældneste.
-        </p>
-        <div class="scroll">
-          <table>
-            <thead>
-              <tr><th>Emoji</th><th class="n" style="text-align:right">Prior</th><th class="n" style="text-align:right">α=0,25</th><th class="n" style="text-align:right">α=0,45</th></tr>
-            </thead>
-            <tbody id="prior"></tbody>
-          </table>
-        </div>
-        <p>
-          Ved α&nbsp;=&nbsp;0,45 fik det walisiske flag 14&nbsp;gange større løft end 😂.
-          Det var derfor <em>beer</em> gav 🏴󠁧󠁢󠁷󠁬󠁳󠁿. Vi kører nu 0,25.
-        </p>
-      </div>
-
-    </div>
-  </section>
-
-  <hr class="rule">
-
-  <section>
-    <div class="section-head">
-      <h2>Testdataene var selv et problem</h2>
-      <p class="note">
-        Kundens 50 «naturlige» feeds så ud som 50.000 beskeder. De er skabelon-genererede.
-      </p>
-    </div>
-
     <div class="panels">
       <div class="panel">
-        <span class="bigstat" style="color:var(--bad)">8&nbsp;%
-          <small>unikke tekster i de 50 feeds — 4.041 af 50.000</small>
+        <span class="bigstat" style="color:var(--bad)">+0,027
+          <small>værdien af at have set testsættet — v4 og v5 er samme opskrift,
+          eneste forskel er om de 1.500 testrækker lå i træningen</small>
         </span>
-        <dl class="stats">
-          <div><dt><code>kommer 10 min for sent</code></dt><dd>1.321×</dd></div>
-          <div><dt><code>haha okay, så har jeg misforstået det</code></dt><dd>1.301×</dd></div>
-          <div><dt><code>2 sek</code></dt><dd>1.255×</dd></div>
-        </dl>
         <p>
-          De «17 unikke emoji» er derfor en egenskab ved generatoren, ikke ved dansk chat.
-          Og kun 3&nbsp;% af emojierne var ting.
+          Alle tal fra før v5 er oppustet med omkring 40&nbsp;%. Det gælder også
+          LLM-boostens 0,112, som ellers så ud til at være bedst.
         </p>
       </div>
-
       <div class="panel">
-        <h3>Det nye diagnostiske sæt</h3>
-        <p>Genereret med Codex, valideret maskinelt på 11 punkter før brug.</p>
+        <h3>Vægtningen var det, der virkede</h3>
+        <p>
+          De 8.741 relabellerede rækker lå i træningen <em>én</em> gang, mens 689
+          opdigtede lå der <em>tyve</em> gange. Ægte data vejede altså en femtedel af
+          det opdigtede. Lagt ind seks gange fordobles andelen af ting-svar.
+        </p>
         <dl class="stats">
-          <div><dt>Testeksempler</dt><dd>210</dd></div>
-          <div><dt>Unikke tekster</dt><dd>100&nbsp;%</dd></div>
-          <div><dt>Uden for vokabular</dt><dd>0</dd></div>
-          <div><dt>Ting-forekomster</dt><dd>30&nbsp;%</dd></div>
-          <div><dt>Overlap med træningsdata</dt><dd>0</dd></div>
+          <div><dt>recall@5, v5 → v6</dt><dd>+0,010</dd></div>
+          <div><dt>95&nbsp;% konfidensinterval</dt><dd>[−0,003, +0,023]</dd></div>
         </dl>
         <p>
-          Genereret af en LLM, så det måler enighed med en LLM — ikke med et menneske.
-          Det er en diagnose, ikke et karakterblad.
+          Intervallet krydser nul. Modellen <em>nævner</em> ting dobbelt så tit;
+          at den <em>rammer</em> dem oftere, er ikke bevist.
         </p>
       </div>
     </div>
@@ -459,154 +248,78 @@
 
   <section>
     <div class="section-head">
-      <h2>Træningen, 15 epochs</h2>
+      <h2>Sætning for sætning</h2>
       <p class="note">
-        689 Codex-eksempler i de svage kategorier, lagt ind 20 gange — men kun i træningssættet,
-        aldrig i validering. Kurven er val-recall@5 pr. epoch.
+        Det er her fremgangen er synlig. <code>Jeg cykler en tur</code> har fejlet
+        gennem seks modeller; 🚲 kom først i vokabularet, og først da de relabellerede
+        data blev vægtet op, blev den valgt.
       </p>
     </div>
-
-    <div class="train">
-      <svg id="curve" viewBox="0 0 560 190" role="img" aria-label="Valideringskurve: recall@5 stiger fra 0,305 ved epoch 1 til 0,435, og flader ud efter epoch 9"></svg>
-      <dl class="stats">
-        <div><dt>Epochs</dt><dd>15 / 15</dd></div>
-        <div><dt>Bedste recall@5</dt><dd>0,435</dd></div>
-        <div><dt>Boost-rækker</dt><dd>13.780</dd></div>
-        <div><dt>Andel af korpus</dt><dd>2,5&nbsp;%</dd></div>
-        <div><dt>Træningstid</dt><dd>37 min</dd></div>
-      </dl>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Besked</th><th>original</th><th>v5</th><th>v6</th></tr></thead>
+        <tbody>
+          <tr><td>Øl</td><td class="em">❤</td><td class="em">🍺🍻</td><td class="em">🍺🍻</td></tr>
+          <tr><td>frokost</td><td class="em">❤</td><td class="em">🍔</td><td class="em">🍔</td></tr>
+          <tr><td>kaffe?</td><td class="em">🤔</td><td class="em">☕</td><td class="em">☕</td></tr>
+          <tr><td>jeg er sur</td><td class="em">😂</td><td class="em">😠😩</td><td class="em">😩</td></tr>
+          <tr><td>Jeg cykler en tur</td><td class="em">😂</td><td class="em">👍😎</td><td class="em up">🚲</td></tr>
+          <tr><td>min nye iPhone</td><td class="em">😂</td><td class="em">📱📝</td><td class="em down">😭😊😂🤣</td></tr>
+        </tbody>
+      </table>
     </div>
-
     <p class="note">
-      Kurven flader ud efter epoch 9 — de sidste seks epochs flyttede 0,004. Valideringssættet
-      er ægte minet tekst, og dér stopper læringen tidligt. Det var det første varsel om,
-      at gevinsten på LLM-sættet ikke var ægte.
+      Den sidste linje er ikke pyntet væk: v6 mistede 📱, som v5 havde ret i. Modellen er
+      blevet mere villig til at gætte på ting, og gætter både bedre og værre end før.
+      Det er derfor en model mere er i gang — trænet udelukkende på ægte relabellerede
+      beskeder, uden et eneste opdigtet eksempel.
     </p>
   </section>
 
+  <hr class="rule">
+
   <section>
     <div class="section-head">
-      <h2>Hvad vi gør nu</h2>
+      <h2>Hvad der er tilbage</h2>
     </div>
     <div class="panels">
       <div class="panel">
-        <h3>Vokabularet først</h3>
+        <h3>8,5 % af relabelleringen er gjort</h3>
+        <dl class="stats">
+          <div><dt>Relabelleret</dt><dd>8.741</dd></div>
+          <div><dt>Danske eksempler i alt</dt><dd>102.726</dd></div>
+        </dl>
         <p>
-          18&nbsp;% af det, den lokale LLM producerer under relabelling, kasseres — og det er
-          systematisk 🏙 💼 🍲 📦 🛠, altså netop de kategorier hvor modellen ligger under
-          baseline. De 512 pladser skal vælges efter hvad dansk chat bruger, ikke hvad
-          Twitter brugte. Det skal ske før vi bruger flere timer på relabelling.
+          Det er det eneste indgreb, der har flyttet noget målbart. De resterende
+          ~94.000 er det oplagte sted at hente mere.
         </p>
       </div>
       <div class="panel">
-        <h3>Mere ægte tekst, ikke mere syntetisk</h3>
+        <h3>Vokabularet har stadig huller</h3>
         <p>
-          Forsøget viser, at syntetisk træningsdata ikke løfter ægte tekst. Relabelling
-          beholder den rigtige Reddit-tekst og skifter kun labelen — den vej er stadig åben,
-          og den er stoppet ved 4.441 af 102.726 for at frigive GPU'en.
+          🚲 har 162 træningseksempler ud af 530.000. Den kan vælges nu, men der er
+          knap nok noget at lære af. Det gælder de fleste af de 76 hverdagsting,
+          der blev byttet ind for 28 flag og en håndfuld kuriositeter.
+        </p>
+      </div>
+      <div class="panel">
+        <h3>Målingen er stadig for stram</h3>
+        <p>
+          recall@5 kræver, at modellen rammer præcis den emoji, ét bestemt menneske
+          valgte. Svarer mennesket 🍽 til frokost og modellen 🍔, tælles det som
+          forkert. For indhold findes der mange gyldige svar.
         </p>
       </div>
     </div>
   </section>
 
   <footer>
-    Før: <code>checkpoints/best.pt</code> · efter: <code>checkpoints_codex/best.pt</code>, begge ved α&nbsp;=&nbsp;0,25.
-    Baseline og model er beregnet på nøjagtig samme 210 eksempler. Konfidensintervaller er
-    bootstrap med 2.000 gentagelser over <code>short_test.jsonl</code> (n&nbsp;=&nbsp;2.980).
-    Siden er et øjebliksbillede fra 18. september kl. 14.12 og opdaterer ikke sig selv.
+    Målt på <code>data/test_da_content.jsonl</code> ved α&nbsp;=&nbsp;0,25.
+    Konfidensintervaller er bootstrap med 2.000 gentagelser.
+    Klassifikationen af ting-emoji følger Unicodes egen gruppering i
+    <code>emoji-test.txt</code>, fratrukket en liste over de dekorative (✨🔥🚀💸),
+    som udgjorde en fjerdedel af alle danske «ting»-emoji.
+    Kode og modeller: <a href="https://github.com/csshape/ai-emoji-model">github.com/csshape/ai-emoji-model</a>
   </footer>
 
 </div>
-
-<script>
-  const CATS = [
-    { label: "Mad & drikke",     n: 49, base: 0.170, before: 0.204, after: 0.534 },
-    { label: "Social",           n: 41, base: 0.581, before: 0.622, after: 0.585 },
-    { label: "Sted & transport", n: 17, base: 0.147, before: 0.147, after: 0.382 },
-    { label: "Tristhed",         n: 30, base: 0.000, before: 0.317, after: 0.450 },
-    { label: "Hverdag",          n: 17, base: 0.324, before: 0.235, after: 0.324 },
-    { label: "Arbejde",          n: 31, base: 0.194, before: 0.145, after: 0.237 },
-    { label: "Vrede",            n: 25, base: 0.020, before: 0.060, after: 0.220 }
-  ];
-  const MAX = 0.70;
-  const fmt = v => v.toFixed(3).replace(".", ",");
-  const pct = v => (v / MAX * 100).toFixed(2) + "%";
-
-  document.getElementById("chart").innerHTML =
-    '<div class="chart-head"><span>Kategori</span><span>Recall@5 — før og efter</span>' +
-    '<span class="num">Efter</span><span class="num">Ændring</span></div>' +
-    CATS.map((c, i) => {
-      const d = c.after - c.before;
-      const cls = Math.abs(d) < 0.005 ? "flat" : (d > 0 ? "up" : "down");
-      const sign = Math.abs(d) < 0.005 ? "±" : (d > 0 ? "+" : "−");
-      const arrow = Math.abs(d) < 0.005 ? "" : (d > 0 ? " ▲" : " ▼");
-      return '<div class="row">' +
-        '<div class="cat"><b>' + c.label + '</b><span>n = ' + c.n + '</span></div>' +
-        '<div class="track pair">' +
-          '<i class="fill before" style="width:' + pct(c.before) + '"></i>' +
-          '<i class="fill after" style="width:' + pct(c.after) + '"></i>' +
-          '<i class="tick" style="left:' + pct(c.base) + '"' +
-            (i === 0 ? ' data-lab="baseline"' : '') + '></i>' +
-        '</div>' +
-        '<div class="num">' + fmt(c.after) + '</div>' +
-        '<div class="delta ' + cls + '">' + sign + fmt(Math.abs(d)) + arrow + '</div>' +
-      '</div>';
-    }).join("");
-
-  const VOCAB = [
-    { label: "Ting og symboler", n: 333, c: "var(--accent)" },
-    { label: "Ansigter",          n: 74,  c: "var(--ink-2)" },
-    { label: "Hænder",            n: 52,  c: "var(--muted)" },
-    { label: "Flag",              n: 26,  c: "var(--bad)" },
-    { label: "Hjerter",           n: 14,  c: "var(--hairline)" },
-    { label: "Personer",          n: 13,  c: "var(--sunken)" }
-  ];
-  document.getElementById("vocab").innerHTML = VOCAB
-    .map(v => '<i style="width:' + (v.n / 512 * 100) + '%;background:' + v.c + '"></i>').join("");
-  document.getElementById("vocab-key").innerHTML = VOCAB
-    .map(v => '<span><i style="background:' + v.c + ';border:1px solid var(--hairline)"></i>' +
-      v.label + ' <span style="font-family:var(--mono);color:var(--muted)">' + v.n + '</span></span>').join("");
-
-  document.getElementById("prior").innerHTML = [
-    ["😂", "0,0719", "×1,9", "×3,3"],
-    ["🍺", "0,0006", "×6,3", "×27,4"],
-    ["🏴󠁧󠁢󠁷󠁬󠁳󠁿", "0,0002", "×8,4", "×45,7"]
-  ].map(r => '<tr><td class="em">' + r[0] + '</td><td class="n">' + r[1] +
-    '</td><td class="n">' + r[2] + '</td><td class="n" style="color:var(--bad)">' + r[3] + '</td></tr>').join("");
-
-  const EP = [0.305, 0.359, 0.393, 0.408, 0.414, 0.419, 0.427, 0.427, 0.431,
-              0.432, 0.433, 0.434, 0.433, 0.435, 0.434];
-  (function curve() {
-    const W = 560, H = 190, L = 44, R = 16, T = 18, B = 30;
-    const lo = 0.28, hi = 0.46;
-    const x = i => L + i * (W - L - R) / (EP.length - 1);
-    const y = v => T + (hi - v) / (hi - lo) * (H - T - B);
-    let g = "";
-    [0.30, 0.35, 0.40, 0.45].forEach(v => {
-      g += '<line x1="' + L + '" y1="' + y(v).toFixed(1) + '" x2="' + (W - R) + '" y2="' + y(v).toFixed(1) +
-           '" stroke="var(--hairline)" stroke-width="1" fill="none"/>' +
-           '<text x="' + (L - 9) + '" y="' + (y(v) + 4).toFixed(1) + '" text-anchor="end" fill="var(--muted)" ' +
-           'font-family="IBM Plex Mono, monospace" font-size="10">' + v.toFixed(2).replace(".", ",") + '</text>';
-    });
-    const pts = EP.map((v, i) => x(i).toFixed(1) + "," + y(v).toFixed(1));
-    g += '<polyline points="' + pts.join(" ") + '" fill="none" stroke="var(--accent)" stroke-width="2" ' +
-         'stroke-linejoin="round" stroke-linecap="round"/>';
-    EP.forEach((v, i) => {
-      const last = i === EP.length - 1;
-      g += '<circle cx="' + x(i).toFixed(1) + '" cy="' + y(v).toFixed(1) + '" r="' + (last ? 4.5 : 2.6) +
-           '" fill="var(--accent)" stroke="var(--surface)" stroke-width="2"/>';
-      if (i === 0 || last) {
-        g += '<text x="' + x(i).toFixed(1) + '" y="' + (y(v) - 12).toFixed(1) + '" text-anchor="' +
-             (last ? "end" : "start") + '" fill="var(--ink)" font-family="IBM Plex Mono, monospace" ' +
-             'font-size="11" font-weight="600">' + v.toFixed(3).replace(".", ",") + '</text>';
-      }
-      if (i % 3 === 0 || last) {
-        g += '<text x="' + x(i).toFixed(1) + '" y="' + (H - 9) + '" text-anchor="middle" fill="var(--muted)" ' +
-             'font-family="IBM Plex Mono, monospace" font-size="10">' + (i + 1) + '</text>';
-      }
-    });
-    g += '<text x="' + ((L + W - R) / 2) + '" y="' + (H - 9) +
-         '" text-anchor="middle" fill="transparent" font-size="10">epoch</text>';
-    document.getElementById("curve").innerHTML = g;
-  })();
-</script>

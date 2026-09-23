@@ -15,7 +15,9 @@ Resumable: rerun to continue where it stopped.
 from __future__ import annotations
 
 import argparse
+import itertools
 import json
+import time
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
@@ -48,9 +50,46 @@ class LLMUnavailable(RuntimeError):
     """
 
 
-def relabel(text: str, model: str, system: str = SYSTEM) -> list[str]:
+# Round-robined across whatever LM Studio instances are reachable, so a second
+# machine on the network doubles throughput. Filled in by main().
+HOSTS: list[str] = ["http://localhost:1234"]
+_next_host = itertools.count()
+
+
+def pick_host() -> str:
+    return HOSTS[next(_next_host) % len(HOSTS)]
+
+
+def probe(host: str, timeout: int = 8) -> bool:
+    """Is this instance up and serving the model?"""
     try:
-        r = requests.post("http://localhost:1234/v1/chat/completions", timeout=180, json={
+        r = requests.get(f"{host}/v1/models", timeout=timeout)
+        return r.status_code == 200 and "gpt-oss" in r.text
+    except Exception:
+        return False
+
+
+def relabel(text: str, model: str, system: str = SYSTEM,
+            attempts: int = 4) -> list[str]:
+    """Ask the LLM for labels. Retries transient failures, aborts on real ones.
+
+    LM Studio answers /v1/models before the weights are in memory and returns
+    500 until they are, so a first call can fail for a minute or two while a
+    20B model loads. Giving up there would be as wrong as never giving up.
+    """
+    for attempt in range(attempts):
+        try:
+            return _one_call(text, model, system, pick_host())
+        except LLMUnavailable:
+            if attempt == attempts - 1:
+                raise
+            time.sleep(15 * (attempt + 1))
+    return []
+
+
+def _one_call(text: str, model: str, system: str, host: str) -> list[str]:
+    try:
+        r = requests.post(f"{host}/v1/chat/completions", timeout=180, json={
             "model": model,
             "messages": [{"role": "system", "content": system},
                          {"role": "user", "content": f"Besked: {text}"}],
@@ -69,6 +108,9 @@ def relabel(text: str, model: str, system: str = SYSTEM) -> list[str]:
 
 def main() -> None:
     ap = argparse.ArgumentParser()
+    ap.add_argument("--host", action="append", default=None, metavar="URL",
+                    help="LM Studio instance, repeatable; unreachable ones are "
+                         "dropped at startup (default http://localhost:1234)")
     ap.add_argument("--vocab", type=Path, default=Path("data/emoji_vocab_v2.json"),
                     help="restrict answers to this emoji vocabulary")
     ap.add_argument("--mined", default="data/mined.jsonl")
@@ -78,6 +120,16 @@ def main() -> None:
     ap.add_argument("--limit", type=int)
     ap.add_argument("--workers", type=int, default=3)
     args = ap.parse_args()
+
+    global HOSTS
+    wanted = args.host or ["http://localhost:1234"]
+    wanted = [h if h.startswith("http") else f"http://{h}" for h in wanted]
+    HOSTS = [h for h in wanted if probe(h)]
+    for h in wanted:
+        print(f"  {h}  {'ok' if h in HOSTS else 'unreachable — skipped'}")
+    if not HOSTS:
+        raise SystemExit("no LM Studio instance reachable")
+    print(f"using {len(HOSTS)} instance(s)\n")
 
     system = SYSTEM
     if args.vocab and args.vocab.exists():

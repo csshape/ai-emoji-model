@@ -6,6 +6,10 @@ const PAD_ID = 0, UNK_ID = 1, BOS_ID = 2;
 const SPACE = "▁";
 const MAX_EMOJI = 5;
 const ABS_THRESHOLD = 0.08, REL_RATIO = 0.35, PRIOR_ALPHA = 0.25;
+// The model learns mood; naming a thing is closer to a lookup, and Unicode
+// already wrote that lookup down. Mirrors emoji_model/keywords.py.
+const KEYWORD_WEIGHT = 8.0;
+const KEY_WORD_RE = /[a-zA-ZæøåÆØÅ]{2,}/g;
 
 // --- text normalisation -----------------------------------------------------
 // SentencePiece was trained with normalization_rule_name="nmt_nfkc_cf", i.e.
@@ -130,11 +134,22 @@ function linear(x, W, b, rows, dIn, dOut, out) {
 }
 
 // --- model ------------------------------------------------------------------
+function keywordHits(text, table) {
+  const hits = new Map();
+  const words = text.toLowerCase().match(KEY_WORD_RE) || [];
+  for (const [key, emojis] of Object.entries(table)) {
+    if (!words.some(w => w.startsWith(key))) continue;
+    for (const e of emojis) hits.set(e, (hits.get(e) ?? 0) + key.length * 0.01);
+  }
+  return hits;
+}
+
 export class EmojiModel {
-  constructor(meta, buffer) {
+  constructor(meta, buffer, keywords) {
     this.cfg = meta.config;
     this.emoji = meta.emoji;
     this.prior = meta.prior ? Float32Array.from(meta.prior) : null;
+    this.keywords = keywords ?? {};
     this.tok = new SpTokenizer(meta.pieces, meta.scores);
     const all = new Float32Array(buffer);
     this.t = {};
@@ -144,12 +159,13 @@ export class EmojiModel {
     }
   }
 
-  static async load(base) {
-    const [meta, buf] = await Promise.all([
+  static async load(base, keywordsUrl = "./model/keywords.json") {
+    const [meta, buf, kw] = await Promise.all([
       fetch(`${base}.json`).then(r => r.json()),
       fetch(`${base}.bin`).then(r => r.arrayBuffer()),
+      fetch(keywordsUrl).then(r => r.json()).catch(() => ({})),
     ]);
-    return new EmojiModel(meta, buf);
+    return new EmojiModel(meta, buf, kw);
   }
 
   forward(ids, length) {
@@ -233,9 +249,16 @@ export class EmojiModel {
     return this.forward(ids, length);
   }
 
-  predict(text, alpha = PRIOR_ALPHA) {
+  predict(text, alpha = PRIOR_ALPHA, keywordWeight = KEYWORD_WEIGHT) {
     const p = this.probs(text);
     const n = p.length;
+    if (keywordWeight > 0 && Object.keys(this.keywords).length) {
+      const index = new Map(this.emoji.map((e, i) => [e, i]));
+      for (const [e, score] of keywordHits(cleanText(text), this.keywords)) {
+        const j = index.get(e);
+        if (j !== undefined) p[j] = p[j] + keywordWeight * score;
+      }
+    }
     let order = Array.from({ length: n }, (_, i) => i);
     if (this.prior && alpha > 0) {
       const adj = new Float64Array(n);

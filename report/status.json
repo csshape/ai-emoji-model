@@ -1,0 +1,212 @@
+{
+ "relabel_rate": {
+  "eta": "34:37:46",
+  "per_min": 43
+ },
+ "updated": "10:46:00",
+ "jobs": {
+  "training": false,
+  "relabelling": true
+ },
+ "relabel": {
+  "done": 13987,
+  "total": 102726
+ },
+ "runs": {
+  "v6": {
+   "epochs": [
+    {
+     "epoch": 1,
+     "val_loss": 0.0162,
+     "recall": 0.254,
+     "secs": 104
+    },
+    {
+     "epoch": 2,
+     "val_loss": 0.0153,
+     "recall": 0.305,
+     "secs": 191
+    },
+    {
+     "epoch": 3,
+     "val_loss": 0.0146,
+     "recall": 0.345,
+     "secs": 102
+    },
+    {
+     "epoch": 4,
+     "val_loss": 0.0143,
+     "recall": 0.36,
+     "secs": 81
+    },
+    {
+     "epoch": 5,
+     "val_loss": 0.014,
+     "recall": 0.372,
+     "secs": 80
+    },
+    {
+     "epoch": 6,
+     "val_loss": 0.0139,
+     "recall": 0.38,
+     "secs": 80
+    },
+    {
+     "epoch": 7,
+     "val_loss": 0.0138,
+     "recall": 0.387,
+     "secs": 80
+    },
+    {
+     "epoch": 8,
+     "val_loss": 0.0138,
+     "recall": 0.389,
+     "secs": 80
+    },
+    {
+     "epoch": 9,
+     "val_loss": 0.0137,
+     "recall": 0.39,
+     "secs": 80
+    },
+    {
+     "epoch": 10,
+     "val_loss": 0.0138,
+     "recall": 0.394,
+     "secs": 80
+    },
+    {
+     "epoch": 11,
+     "val_loss": 0.0137,
+     "recall": 0.394,
+     "secs": 80
+    },
+    {
+     "epoch": 12,
+     "val_loss": 0.0137,
+     "recall": 0.395,
+     "secs": 80
+    },
+    {
+     "epoch": 13,
+     "val_loss": 0.0138,
+     "recall": 0.396,
+     "secs": 80
+    },
+    {
+     "epoch": 14,
+     "val_loss": 0.0138,
+     "recall": 0.395,
+     "secs": 80
+    },
+    {
+     "epoch": 15,
+     "val_loss": 0.0138,
+     "recall": 0.395,
+     "secs": 80
+    }
+   ],
+   "done": true,
+   "best": 0.396,
+   "step": null
+  },
+  "v8": {
+   "epochs": [
+    {
+     "epoch": 1,
+     "val_loss": 0.0165,
+     "recall": 0.238,
+     "secs": 93
+    },
+    {
+     "epoch": 2,
+     "val_loss": 0.0154,
+     "recall": 0.307,
+     "secs": 95
+    },
+    {
+     "epoch": 3,
+     "val_loss": 0.0146,
+     "recall": 0.346,
+     "secs": 97
+    },
+    {
+     "epoch": 4,
+     "val_loss": 0.0145,
+     "recall": 0.348,
+     "secs": 94
+    },
+    {
+     "epoch": 5,
+     "val_loss": 0.0143,
+     "recall": 0.364,
+     "secs": 92
+    },
+    {
+     "epoch": 6,
+     "val_loss": 0.0143,
+     "recall": 0.369,
+     "secs": 93
+    },
+    {
+     "epoch": 7,
+     "val_loss": 0.0143,
+     "recall": 0.374,
+     "secs": 92
+    },
+    {
+     "epoch": 8,
+     "val_loss": 0.0142,
+     "recall": 0.375,
+     "secs": 92
+    },
+    {
+     "epoch": 9,
+     "val_loss": 0.0141,
+     "recall": 0.382,
+     "secs": 91
+    },
+    {
+     "epoch": 10,
+     "val_loss": 0.0141,
+     "recall": 0.383,
+     "secs": 91
+    },
+    {
+     "epoch": 11,
+     "val_loss": 0.0141,
+     "recall": 0.388,
+     "secs": 91
+    },
+    {
+     "epoch": 12,
+     "val_loss": 0.0141,
+     "recall": 0.391,
+     "secs": 91
+    },
+    {
+     "epoch": 13,
+     "val_loss": 0.0141,
+     "recall": 0.39,
+     "secs": 90
+    },
+    {
+     "epoch": 14,
+     "val_loss": 0.0141,
+     "recall": 0.39,
+     "secs": 90
+    },
+    {
+     "epoch": 15,
+     "val_loss": 0.0141,
+     "recall": 0.391,
+     "secs": 91
+    }
+   ],
+   "done": true,
+   "best": 0.391,
+   "step": null
+  },
+  "v9": null
+ }
+}

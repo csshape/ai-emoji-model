@@ -114,7 +114,8 @@
   <h1>Emoji-model · prøvestand</h1>
   <p class="lede">
     Tre modeller kører her i fanen, 1,6 mio. parametre hver. Skriv noget og se dem svare
-    ved siden af hinanden.
+    ved siden af hinanden. Ordbogen slår Unicodes egne emoji-nøgleord op i teksten og
+    hjælper modellen med at navngive ting — slå den fra for at se forskellen.
   </p>
 
   <div class="ask">
@@ -163,6 +164,9 @@
       <span class="val" id="alphaVal">0,25</span>
     </label>
     <label>
+      <input type="checkbox" id="dict" checked> Brug ordbogen
+    </label>
+    <label>
       <input type="checkbox" id="live" checked> Svar mens jeg skriver
     </label>
   </div>
@@ -196,7 +200,8 @@ $("chips").addEventListener("click", e => {
 
 function render(model, out, rows, ms, text) {
   const t0 = performance.now();
-  const picks = model.predict(text, parseFloat($("alpha").value));
+  const picks = model.predict(text, parseFloat($("alpha").value),
+    $("dict").checked ? 8 : 0);
   const dt = performance.now() - t0;
   out.textContent = picks.map(p => p.emoji).join(" ");
   const max = picks[0].score;
@@ -224,6 +229,7 @@ $("q").addEventListener("input", () => {
   clearTimeout(timer);
   timer = setTimeout(run, 160);
 });
+$("dict").addEventListener("change", run);
 $("alpha").addEventListener("input", () => {
   $("alphaVal").textContent = parseFloat($("alpha").value).toFixed(2).replace(".", ",");
   run();
