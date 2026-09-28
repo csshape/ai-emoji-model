@@ -139,8 +139,8 @@
     </div>
     <div class="card b">
       <header>
-        <h2>LLM-boost</h2>
-        <span class="sub">checkpoints_codex/</span>
+        <h2>Fuldt relabelleret</h2>
+        <span class="sub">checkpoints_v9/</span>
       </header>
       <div class="out" id="outB"></div>
       <div class="rows" id="rowsB"></div>
@@ -238,7 +238,7 @@ $("alpha").addEventListener("input", () => {
 try {
   [A, B, C] = await Promise.all([
     EmojiModel.load("./model/base"),
-    EmojiModel.load("./model/boost"),
+    EmojiModel.load("./model/v9"),
     EmojiModel.load("./model/v6"),
   ]);
   status.textContent =
