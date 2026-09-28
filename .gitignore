@@ -25,5 +25,6 @@ data/*
 !data/model_config.json
 !data/test_diagnostic.jsonl
 !data/train_codex.jsonl
+!data/synthetic_da.jsonl
 !data/testdata_codex/
 !data/traindata_codex/
