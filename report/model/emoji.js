@@ -134,6 +134,11 @@ function linear(x, W, b, rows, dIn, dOut, out) {
 }
 
 // --- model ------------------------------------------------------------------
+function isFlag(e) {
+  const cps = [...e].map(c => c.codePointAt(0));
+  return cps.length === 2 && cps.every(c => c >= 0x1F1E6 && c <= 0x1F1FF);
+}
+
 function keywordHits(text, table) {
   const hits = new Map();
   const words = text.toLowerCase().match(KEY_WORD_RE) || [];
@@ -161,9 +166,11 @@ export class EmojiModel {
 
   static async load(base, keywordsUrl = "./model/keywords.json") {
     const [meta, buf, kw] = await Promise.all([
-      fetch(`${base}.json`).then(r => r.json()),
-      fetch(`${base}.bin`).then(r => r.arrayBuffer()),
-      fetch(keywordsUrl).then(r => r.json()).catch(() => ({})),
+      // Revalidate every time: a retrained model or rebuilt dictionary keeps
+      // its file name, and a cached copy silently shows the old answers.
+      fetch(`${base}.json`, { cache: "no-cache" }).then(r => r.json()),
+      fetch(`${base}.bin`, { cache: "no-cache" }).then(r => r.arrayBuffer()),
+      fetch(keywordsUrl, { cache: "no-cache" }).then(r => r.json()).catch(() => ({})),
     ]);
     return new EmojiModel(meta, buf, kw);
   }
@@ -251,12 +258,17 @@ export class EmojiModel {
 
   predict(text, alpha = PRIOR_ALPHA, keywordWeight = KEYWORD_WEIGHT) {
     const p = this.probs(text);
+    let flag = null;
     const n = p.length;
     if (keywordWeight > 0 && Object.keys(this.keywords).length) {
       const index = new Map(this.emoji.map((e, i) => [e, i]));
+      let flagScore = 0;
       for (const [e, score] of keywordHits(cleanText(text), this.keywords)) {
         const j = index.get(e);
         if (j !== undefined) p[j] = p[j] + keywordWeight * score;
+        // Flags are outside the model's vocabulary; a named country goes
+        // first, the model's answer after it. Mirrors keywords.best_flag.
+        else if (isFlag(e) && score > flagScore) { flag = e; flagScore = score; }
       }
     }
     let order = Array.from({ length: n }, (_, i) => i);
@@ -274,6 +286,7 @@ export class EmojiModel {
       const s = p[order[k]];
       if (s >= ABS_THRESHOLD && s >= REL_RATIO * top) out.push({ emoji: this.emoji[order[k]], score: s });
     }
-    return out;
+    if (flag) out.unshift({ emoji: flag, score: top });
+    return out.slice(0, MAX_EMOJI);
   }
 }

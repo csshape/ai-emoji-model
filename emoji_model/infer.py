@@ -14,7 +14,7 @@ from pathlib import Path
 import torch
 
 from .emoji_utils import clean_text, split_emoji
-from .keywords import lookup
+from .keywords import best_flag, lookup
 from .model import EmojiEncoder, ModelConfig
 from .tokenizer import Tokenizer
 from .vocab import EmojiVocab
@@ -66,31 +66,32 @@ class EmojiPredictor:
                 keyword_weight: float | None = None) -> list[tuple[str, float]]:
         p = self.probs(text)
         kw = DEFAULT_KEYWORD_WEIGHT if keyword_weight is None else keyword_weight
+        flag = None
         if self.keywords and kw > 0:
             body, _ = split_emoji(text)
-            for emoji, score in lookup(clean_text(body), self.keywords).items():
+            hits = lookup(clean_text(body), self.keywords)
+            for emoji, score in hits.items():
                 idx = self.vocab.index.get(emoji)
                 if idx is not None:
                     p[idx] = p[idx] + kw * score
+            # Flags are outside the model's vocabulary; a named country goes
+            # first, the model's answer after it.
+            flag = best_flag(hits)
         alpha = DEFAULT_PRIOR_ALPHA if prior_alpha is None else prior_alpha
         if self.prior is not None and alpha > 0:
             # Rank by how much this emoji beats its base rate, then rescale so
             # the reported numbers stay on the original probability scale.
             adjusted = p / self.prior.clamp(min=1e-6).pow(alpha)
             order = adjusted.argsort(descending=True)[:MAX_EMOJI]
-            scores = p[order].tolist()
-            idx = order.tolist()
-            out = [(self.vocab.emojis[idx[0]], scores[0])]
-            for s_, i_ in zip(scores[1:], idx[1:]):
-                if s_ >= abs_threshold and s_ >= rel_ratio * scores[0]:
-                    out.append((self.vocab.emojis[i_], s_))
-            return out[:MAX_EMOJI]
-        top = p.topk(MAX_EMOJI)
-        scores, idx = top.values.tolist(), top.indices.tolist()
+        else:
+            order = p.topk(MAX_EMOJI).indices
+        scores, idx = p[order].tolist(), order.tolist()
         out = [(self.vocab.emojis[idx[0]], scores[0])]
-        for s, i in zip(scores[1:], idx[1:]):
-            if s >= abs_threshold and s >= rel_ratio * scores[0]:
-                out.append((self.vocab.emojis[i], s))
+        for s_, i_ in zip(scores[1:], idx[1:]):
+            if s_ >= abs_threshold and s_ >= rel_ratio * scores[0]:
+                out.append((self.vocab.emojis[i_], s_))
+        if flag:
+            out = [(flag, scores[0])] + out
         return out[:MAX_EMOJI]
 
 

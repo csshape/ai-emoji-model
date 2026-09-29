@@ -180,7 +180,9 @@
 </div>
 
 <script type="module">
-import { EmojiModel } from "./model/emoji.js";
+// Imported fresh on every load, for the same reason emoji.js revalidates its
+// fetches: the file name stays put while the code behind it changes.
+const { EmojiModel } = await import(`./model/emoji.js?v=${Date.now()}`);
 
 const PRESETS = ["jeg er sur", "Øl", "frokost", "Fredagsbar om lidt", "kaffe?",
                  "jeg er så træt", "beer", "tea time", "iphone", "Beer on Langebro",
