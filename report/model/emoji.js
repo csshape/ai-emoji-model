@@ -268,7 +268,10 @@ export class EmojiModel {
         if (j !== undefined) p[j] = p[j] + keywordWeight * score;
         // Flags are outside the model's vocabulary; a named country goes
         // first, the model's answer after it. Mirrors keywords.best_flag.
-        else if (isFlag(e) && score > flagScore) { flag = e; flagScore = score; }
+        // Ties go to the smaller code point, not to table order.
+        else if (isFlag(e) && (score > flagScore || (score === flagScore && e < flag))) {
+          flag = e; flagScore = score;
+        }
       }
     }
     let order = Array.from({ length: n }, (_, i) => i);

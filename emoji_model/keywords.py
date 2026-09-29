@@ -159,7 +159,9 @@ def prune(table: dict[str, list[str]], corpus: list[dict],
 def best_flag(hits: dict[str, float]) -> str | None:
     """The flag with the longest matching key, if the message names a country."""
     flags = {e: s for e, s in hits.items() if is_flag(e)}
-    return max(flags, key=flags.get) if flags else None
+    # Ties go to the smaller code point, not to table order: the Swift port
+    # cannot read a JSON object's keys in order.
+    return min(flags, key=lambda e: (-flags[e], e)) if flags else None
 
 
 def lookup(text: str, table: dict[str, list[str]]) -> dict[str, float]:
