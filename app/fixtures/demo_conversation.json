@@ -1,0 +1,23 @@
+{
+ "friend": "Alex",
+ "seed": [
+  {"from": "friend", "text": "Hey! Are we still on for tonight?"},
+  {"from": "me", "text": "Yes! Pizza at mine?"},
+  {"from": "friend", "text": "Perfect, I'm so hungry"},
+  {"from": "friend", "text": "Just got back from Spain btw"}
+ ],
+ "replies": [
+  "Haha that's hilarious",
+  "I'm so tired today",
+  "Coffee first, then we talk",
+  "We won the game last night!",
+  "My cat is sick again",
+  "Stuck in traffic, running late",
+  "It's raining all day here",
+  "Congrats on the new job!!",
+  "Beer after work?",
+  "Let's watch a movie later",
+  "I miss the beach already",
+  "Good night, see you tomorrow"
+ ]
+}
