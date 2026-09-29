@@ -36,6 +36,7 @@ struct ChatView: View {
 
     private var transcript: some View {
         ScrollViewReader { proxy in
+          GeometryReader { viewport in
             ScrollView {
                 LazyVStack(spacing: 6) {
                     ForEach(chat.messages) { message in
@@ -57,6 +58,9 @@ struct ChatView: View {
                 }
                 .padding(.horizontal, 12)
                 .padding(.vertical, 12)
+                // A short conversation sits on the composer like in any chat app,
+                // instead of floating wherever the scroll view happens to put it.
+                .frame(minHeight: viewport.size.height, alignment: .bottom)
             }
             .defaultScrollAnchor(.bottom)
             .scrollDismissesKeyboard(.interactively)
@@ -68,6 +72,8 @@ struct ChatView: View {
             .onChange(of: chat.messages.count) { scrollToBottom(proxy) }
             .onChange(of: chat.friendIsTyping) { scrollToBottom(proxy) }
             .onChange(of: composerFocused) { scrollToBottom(proxy) }
+            .onChange(of: chat.reactingTo) { scrollToBottom(proxy) }
+          }
         }
     }
 
@@ -143,9 +149,14 @@ struct ChatView: View {
 
     /// `-demoDraft "text"`, `-demoSend YES`, `-demoReaction "😂"` and
     /// `-demoReact YES` put the app in a state worth a screenshot without
-    /// driving the keyboard.
+    /// driving the keyboard; `-demoScript YES` plays a whole conversation for
+    /// a screen recording.
     private func applyLaunchArguments() {
         let defaults = UserDefaults.standard
+        if defaults.bool(forKey: "demoScript") {
+            Task { await chat.playDemoScript() }
+            return
+        }
         if let draft = defaults.string(forKey: "demoDraft") { chat.draft = draft }
         if let emoji = defaults.string(forKey: "demoReaction"), !emoji.isEmpty, let last = chat.messages.last(where: { !$0.fromMe }) {
             chat.react(emoji, to: last.id)

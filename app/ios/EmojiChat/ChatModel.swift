@@ -155,6 +155,44 @@ final class ChatModel {
         reactionChoices = []
     }
 
+    /// Plays a fixed conversation so a screen recording shows the same thing
+    /// every time: typing one character at a time (slow enough that each
+    /// keystroke gets its own suggestions), picking the model's first
+    /// suggestion, sending, and reacting to the reply with the model's first pick.
+    func playDemoScript() async {
+        let lines = ["Beer after work?", "Happy birthday!!", "Going to Spain next week", "My cat is sick"]
+        try? await Task.sleep(for: .seconds(1.5))
+        for line in lines {
+            for ch in line {
+                draft.append(ch)
+                try? await Task.sleep(for: .milliseconds(140))
+            }
+            guard await waitFor({ self.suggestions.first != nil }) else { continue }
+            try? await Task.sleep(for: .milliseconds(900))
+            if let pick = suggestions.first { draft += " " + pick }
+            try? await Task.sleep(for: .milliseconds(800))
+            let count = messages.count
+            send()
+            guard await waitFor({ self.messages.count > count + 1 }, timeout: 5) else { continue }
+            try? await Task.sleep(for: .milliseconds(900))
+            guard let reply = messages.last, !reply.fromMe else { continue }
+            toggleReactions(for: reply)
+            guard await waitFor({ !self.reactionChoices.isEmpty }) else { continue }
+            try? await Task.sleep(for: .milliseconds(1100))
+            if let pick = reactionChoices.first { react(pick, to: reply.id) }
+            try? await Task.sleep(for: .milliseconds(1200))
+        }
+    }
+
+    private func waitFor(_ condition: @escaping () -> Bool, timeout: Double = 3) async -> Bool {
+        let deadline = Date().addingTimeInterval(timeout)
+        while !condition() {
+            if Date() > deadline { return false }
+            try? await Task.sleep(for: .milliseconds(50))
+        }
+        return true
+    }
+
     func react(_ emoji: String, to id: Message.ID) {
         guard let i = messages.firstIndex(where: { $0.id == id }) else { return }
         messages[i].reaction = messages[i].reaction == emoji ? nil : emoji

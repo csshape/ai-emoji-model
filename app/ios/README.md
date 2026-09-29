@@ -33,4 +33,10 @@ Or open `EmojiChat.xcodeproj` and run. Needs iOS 17 or later.
 
 For screenshots without a keyboard, launch arguments set up state:
 `-demoDraft "text"`, `-demoSend YES`, `-demoReaction "😂"` (on the last friend
-message) and `-demoReact YES` (opens its reaction bar).
+message) and `-demoReact YES` (opens its reaction bar). `-demoScript YES` plays
+a whole conversation -- typing, picking a suggestion, sending, reacting to the
+reply -- for screen recordings like `app/demo.gif`:
+
+```sh
+xcrun simctl launch booted com.framna.emojichat -demoScript YES
+```
