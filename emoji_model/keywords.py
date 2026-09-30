@@ -59,6 +59,16 @@ FLAG_STOP = {"jordan", "chad", "turkey", "georgia", "jersey", "guinea", "niger",
              "togo", "china", "chile"}
 
 
+# Everyday Danish words that CLDR does not carry and the model cannot learn:
+# SentencePiece splits "frokost" as fro·ko·st and "frost" as fro·st, so once
+# the synthetic noise around frokost was cleaned out, every lunch answered ❄.
+# Keys are prefixes like every other key, so "frokostpausen" matches too.
+DA_WORDS = {
+    "frokost": ["🍽"], "aftensmad": ["🍽"], "morgenmad": ["🍳"],
+    "madpakke": ["🥪"], "fredagsbar": ["🍻"],
+}
+
+
 def flag_for(code: str) -> str:
     return "".join(chr(0x1F1E6 + ord(c) - ord("A")) for c in code)
 
@@ -204,6 +214,8 @@ def main() -> None:
         table = prune(table, corpus)
         print(f"pruned {before - len(table)} low-precision keys "
               f"on {len(corpus):,} Danish training rows")
+    for key, es in DA_WORDS.items():
+        table[key] = sorted(set(table.get(key, [])) | {e for e in es if e in set(vocab)})
     flags = build_flags(args.territories)
     for key, fs in flags.items():
         table[key] = sorted(set(table.get(key, [])) | set(fs))

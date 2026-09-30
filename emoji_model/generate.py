@@ -43,6 +43,19 @@ ANGLES = {
     "reply": "korte svar eller reaktioner på noget en anden lige har skrevet",
     "plans": "spørgsmål eller planlægning med andre",
 }
+# Only on request (--angles): the mined corpus has almost no 1-4 word
+# messages, which is exactly what people type into a chat, so "jeg er sur"
+# was decided by a handful of boosted rows.
+EXTRA_ANGLES = {
+    "short": "meget korte beskeder på 1-6 ord, som man skriver dem i en chat -- "
+             "mange forskellige ordvalg, gerne med slang og bandeord hvor det passer",
+}
+EXTRA_ANGLES["feeling"] = (
+    "meget korte beskeder på 1-5 ord, hvor afsenderen siger hvordan DE SELV har "
+    "det, med de ord danskere faktisk bruger (fx sur, vred, gal, irriteret, "
+    "pissesur, hidsig, rasende, træt af det, ked af det, glad, træt) -- ikke "
+    "beskeder rettet mod en anden person")
+ALL_ANGLES = {**ANGLES, **EXTRA_ANGLES}
 # Mood angles ("glad", "irriteret") were tried first and pulled against the
 # emoji: 😠 got "Tillykke med din nye kæreste". The angle only varies the form.
 PROMPT = (
@@ -72,7 +85,9 @@ def keywords_for(emoji: str, da: dict) -> set[str]:
 
 def ask(emoji: str, desc: str, angle: str, n: int, model: str,
         attempts: int = 3) -> list[str]:
-    prompt = PROMPT.format(n=n, emoji=emoji, desc=desc, angle=ANGLES[angle])
+    # "short#3" is the fourth call for the same angle: --repeat asks again for
+    # more rows, and the filter drops what comes back twice.
+    prompt = PROMPT.format(n=n, emoji=emoji, desc=desc, angle=ALL_ANGLES[angle.split("#")[0]])
     for attempt in range(attempts):
         try:
             host = pick_host()
@@ -242,6 +257,10 @@ def main() -> None:
     ap.add_argument("--per-emoji", type=int, default=100,
                     help="rows kept per emoji after filtering")
     ap.add_argument("--per-call", type=int, default=20)
+    ap.add_argument("--angles", nargs="*", default=None,
+                    help=f"subset of angles; default {' '.join(ANGLES)}, extra: {' '.join(EXTRA_ANGLES)}")
+    ap.add_argument("--repeat", type=int, default=1,
+                    help="calls per angle, for more rows than one call gives")
     ap.add_argument("--emoji", nargs="*", help="only these emoji (for a trial run)")
     ap.add_argument("--host", action="append", default=None, metavar="URL")
     ap.add_argument("--backend", choices=["lmstudio", "codex"], default="lmstudio")
@@ -268,9 +287,11 @@ def main() -> None:
                     done.add((rec["emoji"], rec["angle"]))
         # Six angles of 20 is 120 candidates for 100 kept rows; the filter
         # needs the slack for duplicates and the keyword cap.
-        pending = {e: [a for a in ANGLES if (e, a) not in done] for e in emojis}
+        angles = [a if i == 0 else f"{a}#{i}" for a in (args.angles or list(ANGLES))
+                  for i in range(args.repeat)]
+        pending = {e: [a for a in angles if (e, a) not in done] for e in emojis}
         pending = {e: a for e, a in pending.items() if a}
-        print(f"{len(emojis)} emoji x {len(ANGLES)} angles: {len(done):,} calls done, "
+        print(f"{len(emojis)} emoji x {len(angles)} angles: {len(done):,} calls done, "
               f"{sum(map(len, pending.values())):,} to go ({args.backend})")
 
         if args.backend == "codex":

@@ -26,5 +26,8 @@ data/*
 !data/test_diagnostic.jsonl
 !data/train_codex.jsonl
 !data/synthetic_da.jsonl
+!data/synthetic_da_clean.jsonl
+!data/synthetic_angry.jsonl
+!data/emoji_vocab_v3.json
 !data/testdata_codex/
 !data/traindata_codex/

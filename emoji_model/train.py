@@ -62,14 +62,23 @@ def main() -> None:
     ap.add_argument("--class-balance", type=float, default=0.0,
                     help="weight rare emoji up in the loss (0 = off, 1 = full "
                          "inverse frequency; 0.5 is a good starting point)")
+    ap.add_argument("--seed", type=int, default=None,
+                    help="fix initialisation and shuffle order. Unseeded runs of one "
+                         "recipe differed by ~0.01 recall@5 -- as much as recipes "
+                         "differ from each other. MPS kernels are not bit-exact, so "
+                         "reruns agree closely rather than exactly.")
     args = ap.parse_args()
+    if args.seed is not None:
+        torch.manual_seed(args.seed)
 
     data, outdir = Path(args.data), Path(args.out)
     outdir.mkdir(parents=True, exist_ok=True)
     device = pick_device()
 
     train_ds, val_ds = load_split(data / "train.pt"), load_split(data / "val.pt")
-    train_dl = DataLoader(train_ds, batch_size=args.batch_size, shuffle=True, drop_last=True)
+    shuffle_gen = torch.Generator().manual_seed(args.seed) if args.seed is not None else None
+    train_dl = DataLoader(train_ds, batch_size=args.batch_size, shuffle=True, drop_last=True,
+                          generator=shuffle_gen)
     val_dl = DataLoader(val_ds, batch_size=512)
 
     cfg = ModelConfig(**json.loads((data / "model_config.json").read_text()))

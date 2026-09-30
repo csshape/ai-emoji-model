@@ -16,6 +16,9 @@ for dst in "$IOS" "$AND"; do
   cp "$SRC/$MODEL.bin" "$dst/model.bin"
   cp "$SRC/keywords.json" "$dst/keywords.json"
 done
+# SwiftPM did not notice replaced resources and kept testing the old model;
+# dropping its build folder forces the new files in.
+rm -rf app/ios/EmojiModel/.build
 # What the browser implementation answers is the reference both ports test against.
 node "$SRC/check.mjs" "$MODEL" app/fixtures/phrases.json > app/fixtures/parity.json
 echo "$MODEL -> $IOS, $AND; fixture app/fixtures/parity.json"

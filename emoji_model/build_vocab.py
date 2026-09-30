@@ -1,9 +1,17 @@
-"""Choose the 512 emoji the model may answer with.
+"""Choose the emoji the model may answer with.
 
 Frequency in mined text alone gives a Twitter-shaped label space: plenty of
 ✨🔥🚀💯 and 28 flags, no 🚲 or 🔑. The LLM relabelling is the direction the
 training data is moving, so its proposals get a vote too -- scaled up to what
 the full run would produce, since only part of it has been done.
+
+A fixed size alone let used emoji fall out: v2 was built mid-relabel, the
+scaled-up LLM votes pushed in emoji with 65 uses, and 🍌 (215), 🍩, 🍇, 🦈,
+🚕 and ~200 others with over 100 uses each were left with no way to be
+answered. --min-uses keeps every emoji used that often, --keep makes sure a
+rebuild never drops what an earlier vocabulary had (synthetic data and
+checkpoints refer to it). The head grows by 128 weights per emoji, so 200 more
+cost ~0.1 MB on the phone.
 """
 from __future__ import annotations
 
@@ -33,7 +41,12 @@ def main() -> None:
     ap.add_argument("--relabeled", type=Path, default=Path("data/relabeled.jsonl"))
     ap.add_argument("--target", type=int, default=102726,
                     help="examples the full relabel run will cover")
-    ap.add_argument("--size", type=int, default=512)
+    ap.add_argument("--size", type=int, default=512,
+                    help="take the top N by score first")
+    ap.add_argument("--min-uses", type=int, default=0,
+                    help="then add every other emoji scored at least this high")
+    ap.add_argument("--keep", type=Path, default=None,
+                    help="vocabulary json whose emoji are always kept, in their order")
     ap.add_argument("--llm-weight", type=float, default=1.0)
     ap.add_argument("--out", type=Path, default=Path("data/emoji_vocab_v2.json"))
     args = ap.parse_args()
@@ -52,7 +65,14 @@ def main() -> None:
             score[e] += n * scale * args.llm_weight
 
     kept = [e for e, _ in score.most_common(args.size)]
-    old = json.loads(Path("data/emoji_vocab.json").read_text(encoding="utf-8"))["emojis"]
+    if args.min_uses:
+        kept += [e for e, n in score.most_common() if n >= args.min_uses and e not in set(kept)]
+    old_path = args.keep or Path("data/emoji_vocab.json")
+    old = json.loads(old_path.read_text(encoding="utf-8"))["emojis"]
+    if args.keep:
+        # Old emoji first and in their old order, so indices into the old
+        # vocabulary stay valid; new ones follow by score.
+        kept = old + [e for e in kept if e not in set(old)]
     added = [e for e in kept if e not in set(old)]
     dropped = [e for e in old if e not in set(kept)]
 
