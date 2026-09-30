@@ -130,8 +130,8 @@
   <div class="pair" hidden id="pair">
     <div class="card a">
       <header>
-        <h2>v10 · 100 syntetiske pr. emoji</h2>
-        <span class="sub">checkpoints_v10/</span>
+        <h2>v10 · 512 emoji</h2>
+        <span class="sub">v10</span>
       </header>
       <div class="out" id="outA"></div>
       <div class="rows" id="rowsA"></div>
@@ -139,8 +139,8 @@
     </div>
     <div class="card b">
       <header>
-        <h2>v11 · kun sjældne emoji</h2>
-        <span class="sub">checkpoints_v11/</span>
+        <h2>v10.3 · 712 emoji + vrede</h2>
+        <span class="sub">v10.3</span>
       </header>
       <div class="out" id="outB"></div>
       <div class="rows" id="rowsB"></div>
@@ -148,8 +148,8 @@
     </div>
     <div class="card c">
       <header>
-        <h2>v12 · sjældne 100, øvrige 25</h2>
-        <span class="sub">checkpoints_v12/</span>
+        <h2>v10.4 · renset for hverdagsord</h2>
+        <span class="sub">v10.4</span>
       </header>
       <div class="out" id="outC"></div>
       <div class="rows" id="rowsC"></div>
@@ -240,11 +240,11 @@ $("alpha").addEventListener("input", () => {
 try {
   [A, B, C] = await Promise.all([
     EmojiModel.load("./model/v10"),
-    EmojiModel.load("./model/v11"),
-    EmojiModel.load("./model/v12"),
+    EmojiModel.load("./model/v10.3"),
+    EmojiModel.load("./model/v10.4"),
   ]);
   status.textContent =
-    `Klar · 3 × ${A.cfg.n_layers} lag, d=${A.cfg.d_model}, ${A.emoji.length} emoji, ` +
+    `Klar · 3 × ${A.cfg.n_layers} lag, d=${A.cfg.d_model}, ${[A, B, C].map(m => m.emoji.length).join("/")} emoji, ` +
     `${A.tok.pieces.length.toLocaleString("da-DK")} subwords`;
   $("go").disabled = false;
   $("q").value = "jeg er sur";

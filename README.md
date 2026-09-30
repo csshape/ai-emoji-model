@@ -169,14 +169,32 @@ diagnostic and training sets under `data/testdata_codex/` and
 Honest summary: the model does sentiment well and content better than it
 did. All 102,726 Danish messages labelled only with generic smileys have been
 relabelled, which took concrete-emoji recall@5 on real Danish messages from
-0.076 to 0.124; synthetic sentences for rare emoji add a little more (0.131 at
-best). Training is not seeded yet, so differences of about 0.01 between runs
-are within noise.
+0.076 to 0.124. The current model, **v10.4**, reaches 0.129 and is what the
+bench and both apps ship.
+
+Models are named by recipe: a minor version is the same recipe with one
+change, retrained from scratch.
+
+| version | change | recall@5 |
+|---|---|---|
+| v10 | 100 synthetic sentences per emoji, 512 emoji | 0.117 |
+| v10.1 | vocabulary to 712 emoji: 🍌 🍩 🦈 🚕 and ~200 others with 100+ uses | 0.117 |
+| v10.2 | drop the old ×20 LLM set, seeded training | 0.116 |
+| v10.3 | + 969 short first-person angry sentences ("jeg er sur" → 😠, not 😩) | 0.118 |
+| v10.4 | drop 19,336 synthetic sentences that used an everyday word as scenery | 0.129 |
+
+The last one was the surprise. Asked for everyday sentences for every emoji,
+the generator used lunch and coffee as backdrop for anything: "frokost"
+appeared in sentences for 398 different emoji, so the model learned it meant
+nothing. Dropping synthetic rows whose words point, in real Danish data, at a
+different emoji than the row's label gave 🚲 for "Jeg cykler en tur" for the
+first time. Seeds landed at v10.2, so earlier differences of ~0.01 are within
+run-to-run noise.
 
 Open threads: English has had none of this work and no content test set of its
-own; first names pull answers off topic ("Christian skal have frokost" → 👤);
-and some everyday words have no reliable signal in the data at all
-("fredagsbar", "vi ses"), which a small hand-written phrase table would fix
-more cheaply than more training.
+own; first names pull answers off topic ("Christian skal have frokost");
+SentencePiece splits "frokost" as fro·ko·st next to "frost" as fro·st, so a
+bare "frokost" still leads with ❄ (a short list of Danish everyday words in
+the dictionary now adds 🍽); and "vi ses" still has no good answer.
 
 MIT licensed.
