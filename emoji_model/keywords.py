@@ -7,7 +7,9 @@ messages the dictionary alone beats the trained model at naming things
 Matching is prefix-on-word-start. Plain substring scores marginally better on
 content (0.183 against 0.178) but finds "kost" inside "frokost" and "pho"
 inside "iphone", and gives back more mood (0.254 against 0.269) for the
-trouble. Danish compounds forward, so a prefix still catches "cykelsti".
+trouble. Danish compounds forward, so a prefix still catches "cykelsti". Each word
+counts only its longest matching key: otherwise "bee" fired inside "beer" and
+answered 🐝, "bat" inside "battery", "cab" inside "cabbage" -- 114 such pairs.
 
 Flags are not in the model's vocabulary -- as a learned answer they are rare
 enough that prior correction turns them into noise -- but a named country is
@@ -154,10 +156,10 @@ def prune(table: dict[str, list[str]], corpus: list[dict],
     fires: dict[str, int] = defaultdict(int)
     hits: dict[str, int] = defaultdict(int)
     for row in corpus:
-        words = WORD_RE.findall(row["text"].lower())
+        fired = fired_keys(WORD_RE.findall(row["text"].lower()), table)
         gold = set(row["labels"])
         for key, emojis in table.items():
-            if any(w.startswith(key) for w in words):
+            if key in fired:
                 fires[key] += 1
                 if gold.intersection(emojis):
                     hits[key] += 1
@@ -178,12 +180,25 @@ def best_flag(hits: dict[str, float]) -> str | None:
     return min(flags, key=lambda e: (-flags[e], e)) if flags else None
 
 
+def fired_keys(words: list[str], table: dict[str, list[str]]) -> set[str]:
+    """The longest key that starts each word; shorter keys inside it stay quiet."""
+    fired = set()
+    for word in words:
+        best = None
+        for key in table:
+            if word.startswith(key) and (best is None or len(key) > len(best)):
+                best = key
+        if best is not None:
+            fired.add(best)
+    return fired
+
+
 def lookup(text: str, table: dict[str, list[str]]) -> dict[str, float]:
     """Emoji -> score for one message. Longer matches count for more."""
     hits: dict[str, float] = defaultdict(float)
-    words = WORD_RE.findall(text.lower())
+    fired = fired_keys(WORD_RE.findall(text.lower()), table)
     for key, emojis in table.items():
-        if any(word.startswith(key) for word in words):
+        if key in fired:
             for e in emojis:
                 hits[e] += len(key) * 0.01
     return dict(hits)

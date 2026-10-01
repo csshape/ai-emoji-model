@@ -142,8 +142,16 @@ function isFlag(e) {
 function keywordHits(text, table) {
   const hits = new Map();
   const words = text.toLowerCase().match(KEY_WORD_RE) || [];
+  // Each word counts only its longest matching key, so "bee" stays quiet
+  // inside "beer". Mirrors keywords.fired_keys.
+  const fired = new Set();
+  for (const w of words) {
+    let best = null;
+    for (const key in table) if (w.startsWith(key) && (best === null || key.length > best.length)) best = key;
+    if (best !== null) fired.add(best);
+  }
   for (const [key, emojis] of Object.entries(table)) {
-    if (!words.some(w => w.startsWith(key))) continue;
+    if (!fired.has(key)) continue;
     for (const e of emojis) hits.set(e, (hits.get(e) ?? 0) + key.length * 0.01);
   }
   return hits;

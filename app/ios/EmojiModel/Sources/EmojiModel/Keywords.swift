@@ -23,11 +23,21 @@ struct KeywordTable: Sendable {
     /// order a JS Map would iterate them: first insertion first.
     func hits(_ text: String) -> [(emoji: String, score: Double)] {
         let words = keyWords(jsLowercased(text))
+        // Each word counts only its longest matching key, so "bee" stays quiet
+        // inside "beer". Mirrors keywords.fired_keys.
+        var fired = Set<UTF16Units>()
+        for w in words {
+            var best: UTF16Units?
+            for (key, _) in entries where w.starts(with: key) && key.count > (best?.count ?? -1) {
+                best = key
+            }
+            if let best { fired.insert(best) }
+        }
         var order: [String] = []
         var slot: [UTF16Units: Int] = [:]
         var scores: [Double] = []
         for (key, emojis) in entries {
-            guard words.contains(where: { $0.starts(with: key) }) else { continue }
+            guard fired.contains(key) else { continue }
             let add = Double(key.count) * 0.01
             for e in emojis {
                 let k = Array(e.utf16)

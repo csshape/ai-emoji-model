@@ -147,8 +147,16 @@ class EmojiModel(modelJson: String, weights: ByteArray, keywordsJson: String? = 
     private fun keywordHits(text: String): LinkedHashMap<String, Double> {
         val hits = LinkedHashMap<String, Double>()
         val words = KEY_WORD_RE.findAll(text.lowercase()).map { it.value }.toList()
+        // Each word counts only its longest matching key, so "bee" stays quiet
+        // inside "beer". Mirrors keywords.fired_keys.
+        val fired = HashSet<String>()
+        for (w in words) {
+            var best: String? = null
+            for (key in keywords.keys) if (w.startsWith(key) && key.length > (best?.length ?: -1)) best = key
+            if (best != null) fired.add(best)
+        }
         for ((key, emojis) in keywords) {
-            if (words.none { it.startsWith(key) }) continue
+            if (key !in fired) continue
             for (e in emojis) hits[e] = (hits[e] ?: 0.0) + key.length * 0.01
         }
         return hits
