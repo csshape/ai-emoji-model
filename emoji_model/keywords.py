@@ -72,7 +72,18 @@ DA_WORDS = {
     # real Danish messages with øl are all longer than three words, so a bare
     # "Øl" only worked while v10's x20 LLM set repeated it 320 times.
     "øl": ["🍺", "🍻"],
+    # CLDR has "tea", but the model answers 🎭 for "tea time": SentencePiece
+    # sees the start of "teater"/"theater".
+    "tea": ["🍵", "☕"],
 }
+# Hand-written words are more precise than CLDR's, and for frokost and tea the
+# model's own wrong answer (❄, 🎭) outranks a single dictionary vote once
+# prior correction lifts rare emoji. Listing an emoji twice counts it twice in
+# every implementation, so the weight lives in the data, not in four ports.
+DA_WORD_WEIGHT = 2
+# Keys with no emoji. Only a word's longest key counts, so these swallow the
+# match: "teaching" stops answering 🍵, "Ølstykke" (a town) stops answering 🍺.
+STOP_KEYS = ["teach", "team", "tear", "tease", "ølstykke"]
 
 
 def flag_for(code: str) -> str:
@@ -234,7 +245,10 @@ def main() -> None:
         print(f"pruned {before - len(table)} low-precision keys "
               f"on {len(corpus):,} Danish training rows")
     for key, es in DA_WORDS.items():
-        table[key] = sorted(set(table.get(key, [])) | {e for e in es if e in set(vocab)})
+        es = [e for e in es if e in set(vocab)]
+        table[key] = sorted(set(table.get(key, [])) - set(es)) + [e for e in es for _ in range(DA_WORD_WEIGHT)]
+    for key in STOP_KEYS:
+        table[key] = []
     flags = build_flags(args.territories)
     for key, fs in flags.items():
         table[key] = sorted(set(table.get(key, [])) | set(fs))
