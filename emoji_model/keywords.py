@@ -66,6 +66,10 @@ FLAG_STOP = {"jordan", "chad", "turkey", "georgia", "jersey", "guinea", "niger",
 DA_WORDS = {
     "frokost": ["🍽"], "aftensmad": ["🍽"], "morgenmad": ["🍳"],
     "madpakke": ["🥪"], "fredagsbar": ["🍻"],
+    # Two letters, below MIN_KEY, so CLDR's "øl" never became a key; the 236
+    # real Danish messages with øl are all longer than three words, so a bare
+    # "Øl" only worked while v10's x20 LLM set repeated it 320 times.
+    "øl": ["🍺", "🍻"],
 }
 
 
